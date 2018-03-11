@@ -1,1 +1,3 @@
 # AllForFitness
+
+Basic functionality:
