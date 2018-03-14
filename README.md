@@ -5,3 +5,4 @@ Basic functionality:
 2) Exercise.
 3) Training.
 4) Images of exercises.
+5) Relax.
