@@ -6,3 +6,5 @@ Basic functionality:
 3) Training.
 4) Images of exercises.
 5) Relax.
+
+First header: A balanced diet.
