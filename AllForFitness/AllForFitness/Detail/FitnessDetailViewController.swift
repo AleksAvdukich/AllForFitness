@@ -18,7 +18,7 @@ class FitnessDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = train!.name // В Navigation Bar отображается имя ресторана. Это имя имеет цвет и шрифт такой, какой прописали в AppDelegate.swift.
+        title = train!.name // В Navigation Bar отображается название тренировки. Это название имеет цвет и шрифт такой, какой прописали в AppDelegate.swift.
     }
 
     override func didReceiveMemoryWarning() {

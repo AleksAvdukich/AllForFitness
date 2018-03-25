@@ -17,10 +17,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Все тренировки-->
+        <!--Все упражнения-->
         <scene sceneID="0hZ-sO-QEy">
             <objects>
-                <tableViewController id="XHa-V0-Cgt" customClass="FitnessTableViewController" customModule="AllForFitness" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="XHa-V0-Cgt" userLabel="Все упражнения" customClass="FitnessTableViewController" customModule="AllForFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GjU-Ds-K9n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,26 +70,64 @@
                             <outlet property="delegate" destination="XHa-V0-Cgt" id="9N6-37-dem"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Все тренировки" id="IhK-03-aWJ" userLabel="Все тренировки"/>
+                    <navigationItem key="navigationItem" title="Exercises" id="IhK-03-aWJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBJ-4U-g1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="176.80000000000001" y="-121.88905547226388"/>
         </scene>
-        <!--Fitness Detail View Controller-->
+        <!--Exercise Detail View Controller-->
         <scene sceneID="XMZ-0K-9hC">
             <objects>
-                <viewController id="tU3-Lt-HUo" customClass="FitnessDetailViewController" customModule="AllForFitness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tU3-Lt-HUo" customClass="ExerciseDetailViewController" customModule="AllForFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yd1-Yr-jZe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-6U-vzC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hcz-48-Aoo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="38" id="f1l-84-BuS" customClass="ExerciseDetailTableViewCell" customModule="AllForFitness" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="333" width="375" height="38"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f1l-84-BuS" id="PZ2-3C-f90">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Техника выполнения:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTw-rp-ZlC">
+                                                    <rect key="frame" x="15" y="6" width="345" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5fR-6U-vzC" firstAttribute="top" secondItem="Yd1-Yr-jZe" secondAttribute="top" id="3v0-7w-TwB"/>
+                            <constraint firstItem="5fR-6U-vzC" firstAttribute="leading" secondItem="2pl-hW-heU" secondAttribute="leading" id="i4X-ws-NWe"/>
+                            <constraint firstItem="5fR-6U-vzC" firstAttribute="trailing" secondItem="2pl-hW-heU" secondAttribute="trailing" id="wfp-Ia-sOH"/>
+                            <constraint firstItem="5fR-6U-vzC" firstAttribute="bottom" secondItem="2pl-hW-heU" secondAttribute="bottom" id="yLh-vv-h3C"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2pl-hW-heU"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="hcz-48-Aoo" id="FbM-eZ-YP1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWK-dR-uGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="-123"/>
+            <point key="canvasLocation" x="956" y="-123.68815592203899"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Lq-RD-Gcg">
