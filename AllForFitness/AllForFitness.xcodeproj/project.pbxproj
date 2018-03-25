@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F466B5620680D3700B3DCFF /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */; };
+		1F466B5A20681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */; };
 		39E193F72067AB2100E1D67C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E193F62067AB2100E1D67C /* AppDelegate.swift */; };
 		39E193FC2067AB2100E1D67C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E193FA2067AB2100E1D67C /* Main.storyboard */; };
 		39E193FE2067AB2100E1D67C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E193FD2067AB2100E1D67C /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
+		1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailTableViewCell.swift; sourceTree = "<group>"; };
 		39E193F32067AB2100E1D67C /* AllForFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllForFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E193F62067AB2100E1D67C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39E193FB2067AB2100E1D67C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				39E1940E2067CBBD00E1D67C /* FitnessDetailViewController.swift */,
+				1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */,
+				1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -157,7 +163,9 @@
 				39E1940D2067B48300E1D67C /* Training.swift in Sources */,
 				39E193F72067AB2100E1D67C /* AppDelegate.swift in Sources */,
 				39E1940F2067CBBD00E1D67C /* FitnessDetailViewController.swift in Sources */,
+				1F466B5A20681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift in Sources */,
 				39E1940B2067B40800E1D67C /* FitnessTableViewCell.swift in Sources */,
+				1F466B5620680D3700B3DCFF /* ExerciseDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,11 +303,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 77L3PZFTBJ;
+				DEVELOPMENT_TEAM = 36763Q3UE3;
 				INFOPLIST_FILE = AllForFitness/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Timur.AllForFitness;
+				PRODUCT_BUNDLE_IDENTIFIER = AllForFitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -311,11 +319,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 77L3PZFTBJ;
+				DEVELOPMENT_TEAM = 36763Q3UE3;
 				INFOPLIST_FILE = AllForFitness/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Timur.AllForFitness;
+				PRODUCT_BUNDLE_IDENTIFIER = AllForFitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
