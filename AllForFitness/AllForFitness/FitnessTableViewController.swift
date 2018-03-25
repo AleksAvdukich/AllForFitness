@@ -56,6 +56,10 @@ class FitnessTableViewController: UITableViewController {
         cell.nameLabel.text = trains[indexPath.row].name
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true) // Исчезание выделения выбранной ячейки.
+    }
 
     // Custom Row Actions для выбранной ячейки (смахивание влево - поделиться и удалить).
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
