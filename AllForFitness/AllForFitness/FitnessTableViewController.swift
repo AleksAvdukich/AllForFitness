@@ -79,4 +79,13 @@ class FitnessTableViewController: UITableViewController {
         return [delete, share]
     }
 
+    // Подготовка к переходу на ViewController. При нажатии на ячейку, вызывается данный метод.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let dvc = segue.destination as? FitnessDetailViewController else { return }
+                dvc.train = self.trains[indexPath.row]
+            }
+        }
+    }
 }
