@@ -13,9 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        UINavigationBar.appearance().tintColor = .blue
+        if let barFont = UIFont(name: "AppleSDGothicNeo-Light", size: 24) {
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font: barFont] // В Navigation Bar цвет текста должен быть белым, а его шрифт - barFont, если такой шрифт существует.
+        }
         return true
     }
 

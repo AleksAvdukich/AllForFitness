@@ -57,6 +57,10 @@ class FitnessTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true) // Исчезание выделения выбранной ячейки.
+    }
+    
     // Custom Row Actions для выбранной ячейки (смахивание влево - поделиться и удалить).
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let share = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Поделиться") { (action: UITableViewRowAction, indexPath) -> Void in
@@ -75,4 +79,13 @@ class FitnessTableViewController: UITableViewController {
         return [delete, share]
     }
 
+    // Подготовка к переходу на ViewController. При нажатии на ячейку, вызывается данный метод.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let dvc = segue.destination as? FitnessDetailViewController else { return } // Конечный контролер, который кастится к EateryDetailViewController, чтобы получить св-во imageName.
+                dvc.train = self.trains[indexPath.row]
+            }
+        }
+    }
 }
