@@ -9,7 +9,7 @@
 import UIKit
 
 class FitnessTableViewController: UITableViewController {
-
+    
     var trains: [Training] = [
         Training(name: "Берёзка", type: "Комлексное", image: "berezka.png", description: "Данное упражнение направлено на укрепление мышц пресса, спины, а также разработку шейного отдела."),
         Training(name: "Махи ногой", type: "Комлексное", image: "makhi.png", description: "Отличное упражнение, помогающее не только нагрузить пресс, который в момент выполнения будет в постоянном напряжении, а и немного проработать ягодичные мышцы."),
@@ -32,22 +32,22 @@ class FitnessTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil) // Убрать текст "Все тренировки" из кнопки назад в Navigation Bar.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return trains.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FitnessTableViewCell
         cell.fitnessImageView.image = UIImage(named: trains[indexPath.row].image)
@@ -60,7 +60,7 @@ class FitnessTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true) // Исчезание выделения выбранной ячейки.
     }
-
+    
     // Custom Row Actions для выбранной ячейки (смахивание влево - поделиться и удалить).
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let share = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Поделиться") { (action: UITableViewRowAction, indexPath) -> Void in
@@ -78,13 +78,13 @@ class FitnessTableViewController: UITableViewController {
         delete.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         return [delete, share]
     }
-
+    
     // Подготовка к переходу на ViewController. При нажатии на ячейку, вызывается данный метод.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                guard let dvc = segue.destination as? FitnessDetailViewController else { return }
-                dvc.train = self.trains[indexPath.row]
+                 let dvc = segue.destination as! ExerciseDetailViewController
+                dvc.imageName = self.trains[indexPath.row].image
             }
         }
     }
