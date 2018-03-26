@@ -30,7 +30,7 @@ class FitnessTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableViewAutomaticDimension
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil) // Убрать текст "Все тренировки" из кнопки назад в Navigation Bar.
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil) // Убрать текст "Exercises" из кнопки назад в Navigation Bar.
     }
     
     override func didReceiveMemoryWarning() {
