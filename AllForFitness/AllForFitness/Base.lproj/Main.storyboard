@@ -70,7 +70,7 @@
                             <outlet property="delegate" destination="XHa-V0-Cgt" id="9N6-37-dem"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Exercises" id="IhK-03-aWJ"/>
+                    <navigationItem key="navigationItem" title="Все упражнения" id="IhK-03-aWJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBJ-4U-g1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,7 +92,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="38" id="f1l-84-BuS" customClass="ExerciseDetailTableViewCell" customModule="AllForFitness" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="38" id="f1l-84-BuS" customClass="ExerciseDetailTableViewCell" customModule="AllForFitness" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="333" width="375" height="38"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f1l-84-BuS" id="PZ2-3C-f90">

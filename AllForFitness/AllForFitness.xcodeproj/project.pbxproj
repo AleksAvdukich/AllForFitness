@@ -16,7 +16,6 @@
 		39E194092067AC8400E1D67C /* FitnessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E194082067AC8400E1D67C /* FitnessTableViewController.swift */; };
 		39E1940B2067B40800E1D67C /* FitnessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E1940A2067B40800E1D67C /* FitnessTableViewCell.swift */; };
 		39E1940D2067B48300E1D67C /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E1940C2067B48300E1D67C /* Training.swift */; };
-		39E1940F2067CBBD00E1D67C /* FitnessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E1940E2067CBBD00E1D67C /* FitnessDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		39E194082067AC8400E1D67C /* FitnessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTableViewController.swift; sourceTree = "<group>"; };
 		39E1940A2067B40800E1D67C /* FitnessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTableViewCell.swift; sourceTree = "<group>"; };
 		39E1940C2067B48300E1D67C /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
-		39E1940E2067CBBD00E1D67C /* FitnessDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 		39E194102067CBCA00E1D67C /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				39E1940E2067CBBD00E1D67C /* FitnessDetailViewController.swift */,
 				1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */,
 				1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */,
 			);
@@ -162,7 +159,6 @@
 				39E194092067AC8400E1D67C /* FitnessTableViewController.swift in Sources */,
 				39E1940D2067B48300E1D67C /* Training.swift in Sources */,
 				39E193F72067AB2100E1D67C /* AppDelegate.swift in Sources */,
-				39E1940F2067CBBD00E1D67C /* FitnessDetailViewController.swift in Sources */,
 				1F466B5A20681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift in Sources */,
 				39E1940B2067B40800E1D67C /* FitnessTableViewCell.swift in Sources */,
 				1F466B5620680D3700B3DCFF /* ExerciseDetailViewController.swift in Sources */,
@@ -303,7 +299,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 36763Q3UE3;
+				DEVELOPMENT_TEAM = 77L3PZFTBJ;
 				INFOPLIST_FILE = AllForFitness/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -319,7 +315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 36763Q3UE3;
+				DEVELOPMENT_TEAM = 77L3PZFTBJ;
 				INFOPLIST_FILE = AllForFitness/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
