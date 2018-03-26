@@ -10,9 +10,9 @@ import UIKit
 
 class ExerciseDetailViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     var train: Training?
-    var imageName = "" // Передача с 1-го ViewController названия изображения.
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = false // Не прячем Navigation Bar при проматывании вниз.
@@ -21,6 +21,8 @@ class ExerciseDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.estimatedRowHeight = 38
+        tableView.rowHeight = UITableViewAutomaticDimension // Автоматическое увеличение высоты строки. Поскольку у ячейки есть строгие констрэйнты относительно строки, следовательно, когда в ячейке большой текст, то растягивается строка, а значит, растягивается и ячейка.
         title = train!.name // В Navigation Bar отображается название тренировки. Это название имеет цвет и шрифт такой, какой прописали в AppDelegate.swift.
         imageView.image = UIImage(named: train!.image) // Отображение изображения упражнения.
         
