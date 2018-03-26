@@ -83,8 +83,8 @@ class FitnessTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                 let dvc = segue.destination as! ExerciseDetailViewController
-                dvc.imageName = self.trains[indexPath.row].image
+                guard let dvc = segue.destination as? ExerciseDetailViewController else { return } // Конечный контролер, который кастится к EateryDetailViewController, чтобы получить св-во imageName.
+                dvc.train = self.trains[indexPath.row]
             }
         }
     }

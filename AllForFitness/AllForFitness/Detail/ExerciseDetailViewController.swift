@@ -10,15 +10,19 @@ import UIKit
 
 class ExerciseDetailViewController: UIViewController {
 
-    
     @IBOutlet weak var imageView: UIImageView!
-    var imageName = "" //передача с 1-го viewController названия изображения
+    var train: Training?
+    var imageName = "" // Передача с 1-го ViewController названия изображения.
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.hidesBarsOnSwipe = false // Не прячем Navigation Bar при проматывании вниз.
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        imageView.image = UIImage(named: imageName)//создание из названия изображения imageView
+        title = train!.name // В Navigation Bar отображается название тренировки. Это название имеет цвет и шрифт такой, какой прописали в AppDelegate.swift.
+        imageView.image = UIImage(named: train!.image) // Отображение изображения упражнения.
         
     }
 
@@ -26,16 +30,4 @@ class ExerciseDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
