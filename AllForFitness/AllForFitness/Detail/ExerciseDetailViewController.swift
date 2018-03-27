@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExerciseDetailViewController: UIViewController {
+class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
@@ -32,4 +32,37 @@ class ExerciseDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ExerciseDetailTableViewCell
+        
+        switch indexPath.row {
+        case 0:
+            cell.keyLabel.text = "Название"
+            cell.valueLabel.text = train!.name
+        case 1:
+            cell.keyLabel.text = "Тип"
+            cell.valueLabel.text = train!.type
+        case 2:
+            cell.keyLabel.text = "Описание"
+            cell.valueLabel.text = train!.description
+        default:
+            break
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }
