@@ -110,7 +110,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Значение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcT-wb-jZj">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Значение" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcT-wb-jZj">
                                                             <rect key="frame" x="111.5" y="0.0" width="223.5" height="23"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -123,8 +123,11 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="bSK-Y0-U2H" firstAttribute="centerY" secondItem="PZ2-3C-f90" secondAttribute="centerY" id="0ty-N7-cqf"/>
+                                                <constraint firstItem="bSK-Y0-U2H" firstAttribute="top" secondItem="PZ2-3C-f90" secondAttribute="top" constant="7" id="Ak8-eu-92K"/>
                                                 <constraint firstItem="bSK-Y0-U2H" firstAttribute="leading" secondItem="PZ2-3C-f90" secondAttribute="leading" constant="20" id="Jq8-Zw-0JO"/>
                                                 <constraint firstAttribute="trailing" secondItem="bSK-Y0-U2H" secondAttribute="trailing" constant="20" id="bQQ-Kh-J0E"/>
+                                                <constraint firstAttribute="bottom" secondItem="bSK-Y0-U2H" secondAttribute="bottom" constant="7" id="fr3-1B-mij"/>
                                                 <constraint firstItem="bSK-Y0-U2H" firstAttribute="centerY" secondItem="PZ2-3C-f90" secondAttribute="centerY" id="gv1-n1-nUP"/>
                                             </constraints>
                                         </tableViewCellContentView>
