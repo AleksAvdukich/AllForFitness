@@ -146,7 +146,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="top" secondItem="Yd1-Yr-jZe" secondAttribute="top" id="3v0-7w-TwB"/>
+                            <constraint firstItem="5fR-6U-vzC" firstAttribute="top" secondItem="Yd1-Yr-jZe" secondAttribute="top" id="BNT-mc-hCO"/>
+                            <constraint firstItem="5fR-6U-vzC" firstAttribute="trailing" secondItem="2pl-hW-heU" secondAttribute="trailing" id="Q6M-ed-80R"/>
+                            <constraint firstItem="5fR-6U-vzC" firstAttribute="leading" secondItem="2pl-hW-heU" secondAttribute="leading" id="TPM-Gr-fgK"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="leading" secondItem="2pl-hW-heU" secondAttribute="leading" id="i4X-ws-NWe"/>
+                            <constraint firstItem="5fR-6U-vzC" firstAttribute="bottom" secondItem="2pl-hW-heU" secondAttribute="bottom" id="jDj-t0-dj6"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="trailing" secondItem="2pl-hW-heU" secondAttribute="trailing" id="wfp-Ia-sOH"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="bottom" secondItem="2pl-hW-heU" secondAttribute="bottom" id="yLh-vv-h3C"/>
                         </constraints>
