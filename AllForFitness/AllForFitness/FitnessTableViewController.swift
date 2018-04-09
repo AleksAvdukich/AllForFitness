@@ -10,6 +10,9 @@ import UIKit
 
 class FitnessTableViewController: UITableViewController {
     
+    var searchController: UISearchController! //осуществляем поиск по имеющимся данным
+    var filteredResultArray: [Training] = [] //помещаем упражнения соответствующие критериям поиска
+    
     var trains: [Training] = [
         Training(name: "Берёзка", type: "Комлексное", image: "berezka.png", description: "Данное упражнение направлено на укрепление мышц пресса, спины, а также разработку шейного отдела."),
         Training(name: "Махи ногой", type: "Комлексное", image: "makhi.png", description: "Отличное упражнение, помогающее не только нагрузить пресс, который в момент выполнения будет в постоянном напряжении, а и немного проработать ягодичные мышцы."),
@@ -26,8 +29,23 @@ class FitnessTableViewController: UITableViewController {
         navigationController?.hidesBarsOnSwipe = true // Прячем Navigation Bar при проматывании вниз.
     }
     
+    func filterContentFor(searchText text: String) {//Отфильтровываем наш массив тренировок в новый массив
+        filteredResultArray = trains.filter { (trains) -> Bool in
+            return (trains.name.lowercased().contains(text.lowercased()))//Во время поиска все названия тренировок мы делаем маленькими чтобы сравнение символов было идентичным
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController = UISearchController(searchResultsController: nil) //Отображение результатов поиска на главном экране
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false//Убираем затемнение VC
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.delegate = self//Тк подписались под протокол
+        searchController.searchBar.barTintColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)//Цвет самой панели для SearchBar
+        searchController.searchBar.tintColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)//Цвет шрифта
+        definesPresentationContext = true //Убираем SearchController из описания упражнения
+        
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableViewAutomaticDimension
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil) // Убрать текст "Все упражнения" из кнопки назад в Navigation Bar.
@@ -56,15 +74,31 @@ class FitnessTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        //возвращаем точное количество ячеек равное кол-ву элементов либо в массив trains либо в массиве filteredResultArray
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredResultArray.count
+        }
         return trains.count
+    }
+    
+    func trainsToDisplayAt(indexPath: IndexPath) -> Training {
+        let exercise: Training //Создаем константу в которую потом поместим значения либо с одного массива либо с другого
+        if searchController.isActive && searchController.searchBar.text != "" {
+            exercise = filteredResultArray[indexPath.row]
+        } else {
+            exercise = trains[indexPath.row]
+        }
+        return exercise
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FitnessTableViewCell
-        cell.fitnessImageView.image = UIImage(named: trains[indexPath.row].image)
+        let exercise = trainsToDisplayAt(indexPath: indexPath)
+        
+        cell.fitnessImageView.image = UIImage(named: exercise.image)
         cell.fitnessImageView.layer.cornerRadius = 32.5
         cell.fitnessImageView.clipsToBounds = true
-        cell.nameLabel.text = trains[indexPath.row].name
+        cell.nameLabel.text = exercise.name
         return cell
     }
     
@@ -95,8 +129,31 @@ class FitnessTableViewController: UITableViewController {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 guard let dvc = segue.destination as? ExerciseDetailViewController else { return } // Конечный контролер, который кастится к EateryDetailViewController, чтобы получить св-во imageName.
-                dvc.train = self.trains[indexPath.row]
+                dvc.train = trainsToDisplayAt(indexPath: indexPath)
             }
         }
     }
 }
+
+extension FitnessTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentFor(searchText: searchController.searchBar.text!)
+        tableView.reloadData()
+    }
+}
+
+extension FitnessTableViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {//момент когда мы щелкнули на поисковую строку
+        if searchBar.text == "" {
+            navigationController?.hidesBarsOnSwipe = false //Отключаем возможность прятаться или двигаться куда либо у нашего navigationController
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        navigationController?.hidesBarsOnSwipe = true//Когда мы ушли с этого окна, мы обратно активируем navigationController
+    }
+}
+
+
+
+
