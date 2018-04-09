@@ -33,6 +33,17 @@ class FitnessTableViewController: UITableViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil) // Убрать текст "Все упражнения" из кнопки назад в Navigation Bar.
     }
     
+    // Метод, позволяющий при загрузке главного экрана (таблицы), вызвать и отобразить PageViewController.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let userDefaults = UserDefaults.standard
+        let wasWatched = userDefaults.bool(forKey: "wasWatched")
+        guard !wasWatched else { return } // Если обе страницы просмотрены, то ключ true трансформируется в false, и мы выходим из цикла через else { return }. Отображается таблица из метода viewDidLoad.
+        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "pageViewController") as? PageViewController {
+            present(pageViewController, animated: true, completion: nil) // Если pageViewController с данным идентификатором найден, он отображается. И далее исполнение переходит в файл РageViewController.swift, где как раз записан класс этого контроллера.
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
