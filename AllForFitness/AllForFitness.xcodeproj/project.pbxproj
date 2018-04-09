@@ -16,6 +16,8 @@
 		39E194092067AC8400E1D67C /* FitnessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E194082067AC8400E1D67C /* FitnessTableViewController.swift */; };
 		39E1940B2067B40800E1D67C /* FitnessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E1940A2067B40800E1D67C /* FitnessTableViewCell.swift */; };
 		39E1940D2067B48300E1D67C /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E1940C2067B48300E1D67C /* Training.swift */; };
+		39E96DD5207B897300004785 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E96DD4207B897300004785 /* PageViewController.swift */; };
+		39E96DD7207B898500004785 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E96DD6207B898500004785 /* ContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		39E194082067AC8400E1D67C /* FitnessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTableViewController.swift; sourceTree = "<group>"; };
 		39E1940A2067B40800E1D67C /* FitnessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTableViewCell.swift; sourceTree = "<group>"; };
 		39E1940C2067B48300E1D67C /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		39E96DD4207B897300004785 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		39E96DD6207B898500004785 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 				39E193F62067AB2100E1D67C /* AppDelegate.swift */,
 				39E194082067AC8400E1D67C /* FitnessTableViewController.swift */,
 				39E1940A2067B40800E1D67C /* FitnessTableViewCell.swift */,
+				39E96DD8207B898B00004785 /* Page */,
 				39E194102067CBCA00E1D67C /* Detail */,
 				39E193FA2067AB2100E1D67C /* Main.storyboard */,
 				39E1940C2067B48300E1D67C /* Training.swift */,
@@ -82,6 +87,15 @@
 				1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		39E96DD8207B898B00004785 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				39E96DD4207B897300004785 /* PageViewController.swift */,
+				39E96DD6207B898500004785 /* ContentViewController.swift */,
+			);
+			path = Page;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +170,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39E96DD7207B898500004785 /* ContentViewController.swift in Sources */,
 				39E194092067AC8400E1D67C /* FitnessTableViewController.swift in Sources */,
+				39E96DD5207B897300004785 /* PageViewController.swift in Sources */,
 				39E1940D2067B48300E1D67C /* Training.swift in Sources */,
 				39E193F72067AB2100E1D67C /* AppDelegate.swift in Sources */,
 				1F466B5A20681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift in Sources */,
