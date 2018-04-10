@@ -33,6 +33,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         title = train!.name // В Navigation Bar отображается название тренировки. Это название имеет цвет и шрифт такой, какой прописали в AppDelegate.swift.
         imageView.image = UIImage(named: train!.image) // Отображение изображения упражнения.
         
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {
