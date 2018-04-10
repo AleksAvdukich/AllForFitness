@@ -12,7 +12,13 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var rateButton: UIButton!
+    @IBOutlet weak var noteButton: UIButton!
     var train: Training?
+    
+    @IBAction func unwindToDetailViewController(segue: UIStoryboardSegue) {
+
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = false // Не прячем Navigation Bar при проматывании вниз.
@@ -65,4 +71,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.destination is NoteTableViewController else { return }
+    }
 }
