@@ -142,12 +142,35 @@
                                     <outlet property="delegate" destination="tU3-Lt-HUo" id="A4r-RC-NgU"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Faf-KF-AOd">
+                                <rect key="frame" x="309" y="145" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Faf-KF-AOd" secondAttribute="height" multiplier="1:1" id="EHJ-pb-NYd"/>
+                                    <constraint firstAttribute="height" constant="50" id="i14-hc-TkK"/>
+                                </constraints>
+                                <state key="normal" image="note"/>
+                                <connections>
+                                    <segue destination="9HW-DY-fsd" kind="show" id="sZa-0D-poa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vW8-Mj-jDd">
+                                <rect key="frame" x="309" y="79" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vW8-Mj-jDd" secondAttribute="height" multiplier="1:1" id="juv-ue-fRn"/>
+                                    <constraint firstAttribute="height" constant="50" id="w2f-te-Kog"/>
+                                </constraints>
+                                <state key="normal" image="like"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="2pl-hW-heU" firstAttribute="trailing" secondItem="Faf-KF-AOd" secondAttribute="trailing" constant="16" id="3Ae-n7-RYk"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="top" secondItem="Yd1-Yr-jZe" secondAttribute="top" id="3v0-7w-TwB"/>
+                            <constraint firstItem="2pl-hW-heU" firstAttribute="trailing" secondItem="vW8-Mj-jDd" secondAttribute="trailing" constant="16" id="9WZ-yg-ocs"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="top" secondItem="Yd1-Yr-jZe" secondAttribute="top" id="BNT-mc-hCO"/>
+                            <constraint firstItem="Faf-KF-AOd" firstAttribute="top" secondItem="vW8-Mj-jDd" secondAttribute="bottom" constant="16" id="EWI-SS-36C"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="trailing" secondItem="2pl-hW-heU" secondAttribute="trailing" id="Q6M-ed-80R"/>
+                            <constraint firstItem="vW8-Mj-jDd" firstAttribute="top" secondItem="2pl-hW-heU" secondAttribute="top" constant="15" id="SfO-O7-6zm"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="leading" secondItem="2pl-hW-heU" secondAttribute="leading" id="TPM-Gr-fgK"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="leading" secondItem="2pl-hW-heU" secondAttribute="leading" id="i4X-ws-NWe"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="bottom" secondItem="2pl-hW-heU" secondAttribute="bottom" id="jDj-t0-dj6"/>
@@ -158,12 +181,72 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="hcz-48-Aoo" id="FbM-eZ-YP1"/>
+                        <outlet property="noteButton" destination="Faf-KF-AOd" id="WEz-ie-HCO"/>
+                        <outlet property="rateButton" destination="vW8-Mj-jDd" id="9HB-jF-0Ad"/>
                         <outlet property="tableView" destination="5fR-6U-vzC" id="gvI-dG-WJ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWK-dR-uGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="-123"/>
+            <point key="canvasLocation" x="941.60000000000002" y="-123.68815592203899"/>
+        </scene>
+        <!--Заметки-->
+        <scene sceneID="Fc7-pd-Dks">
+            <objects>
+                <tableViewController id="0Qx-kh-wIE" customClass="NoteTableViewController" customModule="AllForFitness" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yxc-Iy-khs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="44" id="DPt-0D-27p" customClass="NoteTableViewCell" customModule="AllForFitness" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DPt-0D-27p" id="ZQ9-xe-t8B">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NoteLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mC-Fn-5zA">
+                                            <rect key="frame" x="16" y="12" width="343" height="21"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9mC-Fn-5zA" firstAttribute="top" secondItem="ZQ9-xe-t8B" secondAttribute="top" constant="12" id="IvB-n5-q4J"/>
+                                        <constraint firstAttribute="bottom" secondItem="9mC-Fn-5zA" secondAttribute="bottom" constant="10.5" id="OBg-rK-kAn"/>
+                                        <constraint firstItem="9mC-Fn-5zA" firstAttribute="leading" secondItem="ZQ9-xe-t8B" secondAttribute="leading" constant="16" id="Tsk-yV-yx7"/>
+                                        <constraint firstAttribute="trailing" secondItem="9mC-Fn-5zA" secondAttribute="trailing" constant="16" id="f8R-lW-9Ij"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="noteLabel" destination="9mC-Fn-5zA" id="UFN-80-tQX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0Qx-kh-wIE" id="hYI-41-dPB"/>
+                            <outlet property="delegate" destination="0Qx-kh-wIE" id="xQp-b2-Tai"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Заметки" id="RzL-X6-lFa">
+                        <barButtonItem key="leftBarButtonItem" title="Назад" id="CWb-5G-cEF">
+                            <connections>
+                                <segue destination="Rb2-kB-DHW" kind="unwind" unwindAction="unwindToDetailViewControllerWithSegue:" id="WUA-GD-Hc9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xUT-by-7nK">
+                            <connections>
+                                <action selector="addNewNote:" destination="0Qx-kh-wIE" id="XZy-Eh-7ZM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A85-H2-rdk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Rb2-kB-DHW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2496.8000000000002" y="-124.58770614692655"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="gyW-Ia-5Lg">
@@ -282,5 +365,27 @@
             </objects>
             <point key="canvasLocation" x="-580" y="-122"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Gpb-he-Tmj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9HW-DY-fsd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Yl-8o-lYF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Qx-kh-wIE" kind="relationship" relationship="rootViewController" id="EdN-4Z-fHZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hqg-xW-MHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1734" y="-124"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="like" width="712" height="708"/>
+        <image name="note" width="512" height="512"/>
+    </resources>
 </document>
