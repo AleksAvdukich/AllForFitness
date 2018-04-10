@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().tintColor = .blue
         
-        //Меняем цвет фона нашего статус бара
-        let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 20))
-        statusBarView.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
-        self.window?.rootViewController?.view.insertSubview(statusBarView, at: 1)//Устанавливаем вышесозданный View на место нашего статус бара
+        // Меняем цвет фона нашего статус бара.
+        let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 20)) // Рамка для StatusBar.
+        statusBarView.backgroundColor = #colorLiteral(red: 0.9030755635, green: 0.9030755635, blue: 0.9030755635, alpha: 1)
+        self.window?.rootViewController?.view.insertSubview(statusBarView, at: 1)
         
         if let barFont = UIFont(name: "AppleSDGothicNeo-Light", size: 20) {
             UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font: barFont] // В Navigation Bar цвет текста должен быть синим, а его шрифт - barFont, если такой шрифт существует.

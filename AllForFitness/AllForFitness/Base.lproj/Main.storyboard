@@ -192,10 +192,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4nb-Eb-nkX">
-                                <rect key="frame" x="0.0" y="267" width="375" height="400"/>
+                                <rect key="frame" x="0.0" y="312" width="375" height="355"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="4YI-u6-W1x"/>
-                                    <constraint firstAttribute="width" secondItem="4nb-Eb-nkX" secondAttribute="height" multiplier="15:16" id="ALJ-HX-kU5"/>
+                                    <constraint firstAttribute="width" secondItem="4nb-Eb-nkX" secondAttribute="height" multiplier="15:16" constant="42.1875" id="ALJ-HX-kU5"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye9-wA-pUs">

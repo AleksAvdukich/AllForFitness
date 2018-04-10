@@ -10,8 +10,8 @@ import UIKit
 
 class FitnessTableViewController: UITableViewController {
     
-    var searchController: UISearchController! //осуществляем поиск по имеющимся данным
-    var filteredResultArray: [Training] = [] //помещаем упражнения соответствующие критериям поиска
+    var searchController: UISearchController!
+    var filteredResultArray: [Training] = [] // Массив упражнений, соответствующий критериям поиска.
     
     var trains: [Training] = [
         Training(name: "Берёзка", type: "Комлексное", image: "berezka.png", description: "Данное упражнение направлено на укрепление мышц пресса, спины, а также разработку шейного отдела."),
@@ -29,22 +29,23 @@ class FitnessTableViewController: UITableViewController {
         navigationController?.hidesBarsOnSwipe = true // Прячем Navigation Bar при проматывании вниз.
     }
     
-    func filterContentFor(searchText text: String) {//Отфильтровываем наш массив тренировок в новый массив
+    func filterContentFor(searchText text: String) {
         filteredResultArray = trains.filter { (trains) -> Bool in
-            return (trains.name.lowercased().contains(text.lowercased()))//Во время поиска все названия тренировок мы делаем маленькими чтобы сравнение символов было идентичным
+            return (trains.name.lowercased().contains(text.lowercased())) // В filteredResultArray помещаются только те элементы, имя которых содержит тот же самый текст, что и в поисковом запросе. lowercased() - метод, который принудительно превращает все буквы имени ресторана в строчные, так же, как и весь запрос.
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchController = UISearchController(searchResultsController: nil) //Отображение результатов поиска на главном экране
+        searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false//Убираем затемнение VC
+        searchController.dimsBackgroundDuringPresentation = false // Убираем затемнение tableView.
         tableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.delegate = self//Тк подписались под протокол
-        searchController.searchBar.barTintColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)//Цвет самой панели для SearchBar
-        searchController.searchBar.tintColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)//Цвет шрифта
-        definesPresentationContext = true //Убираем SearchController из описания упражнения
+        searchController.searchBar.delegate = self
+        searchController.searchBar.barTintColor = #colorLiteral(red: 0.9030755635, green: 0.9030755635, blue: 0.9030755635, alpha: 1) // Цвет панели SearchBar.
+        searchController.searchBar.tintColor = .blue // Цвет шрифта.
+        definesPresentationContext = true // Поисковая строка (searchController) не переходит на DetailViewController.
         
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -68,13 +69,11 @@ class FitnessTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        //возвращаем точное количество ячеек равное кол-ву элементов либо в массив trains либо в массиве filteredResultArray
+        // Возвращаем точное количество ячеек, равное кол-ву элементов либо в массив trains, либо в массиве filteredResultArray.
         if searchController.isActive && searchController.searchBar.text != "" {
             return filteredResultArray.count
         }
@@ -82,7 +81,7 @@ class FitnessTableViewController: UITableViewController {
     }
     
     func trainsToDisplayAt(indexPath: IndexPath) -> Training {
-        let exercise: Training //Создаем константу в которую потом поместим значения либо с одного массива либо с другого
+        let exercise: Training // Создаем константу в которую потом поместим значения либо с одного массива либо с другого
         if searchController.isActive && searchController.searchBar.text != "" {
             exercise = filteredResultArray[indexPath.row]
         } else {
@@ -99,6 +98,7 @@ class FitnessTableViewController: UITableViewController {
         cell.fitnessImageView.layer.cornerRadius = 32.5
         cell.fitnessImageView.clipsToBounds = true
         cell.nameLabel.text = exercise.name
+        
         return cell
     }
     
@@ -115,42 +115,45 @@ class FitnessTableViewController: UITableViewController {
                 self.present(activityController, animated: true, completion: nil)
             }
         }
-        let delete = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Удалить") { (action: UITableViewRowAction, indexPath) -> Void in
-            self.trains.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
+//        let delete = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Удалить") { (action: UITableViewRowAction, indexPath) -> Void in
+//            self.trains.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
         share.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-        delete.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        return [delete, share]
+//        delete.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        return [share]
     }
     
     // Подготовка к переходу на ViewController. При нажатии на ячейку, вызывается данный метод.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                guard let dvc = segue.destination as? ExerciseDetailViewController else { return } // Конечный контролер, который кастится к EateryDetailViewController, чтобы получить св-во imageName.
+                guard let dvc = segue.destination as? ExerciseDetailViewController else { return } // Конечный контролер, который кастится к EateryDetailViewController, чтобы получить его св-ва.
                 dvc.train = trainsToDisplayAt(indexPath: indexPath)
             }
         }
     }
 }
 
+// Подписываемся под протокол UISearchResultsUpdating для поисковой панели в tableView.
 extension FitnessTableViewController: UISearchResultsUpdating {
+    // Этот метод вызывается тогда, когда что-то изменяется в поисковом запросе. Тогда сразу обновляется tableView.
     func updateSearchResults(for searchController: UISearchController) {
         filterContentFor(searchText: searchController.searchBar.text!)
-        tableView.reloadData()
+        tableView.reloadData() // Перезагружаем таблицу.
     }
 }
 
 extension FitnessTableViewController: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {//момент когда мы щелкнули на поисковую строку
+    // Метод, означающий то, когда мы щелкаем на поисковую строку.
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if searchBar.text == "" {
-            navigationController?.hidesBarsOnSwipe = false //Отключаем возможность прятаться или двигаться куда либо у нашего navigationController
+            navigationController?.hidesBarsOnSwipe = false // navigationController прячется. То есть остается только searchController.
         }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        navigationController?.hidesBarsOnSwipe = true//Когда мы ушли с этого окна, мы обратно активируем navigationController
+        navigationController?.hidesBarsOnSwipe = true // Когда мы ушли с этого окна, мы обратно активируем navigationController
     }
 }
 
