@@ -16,6 +16,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var noteButton: UIButton!
     var train: Training?
     
+    // Обратный сигвэй от NoteTableViewController. От кнопки "Назад" в Exit NoteTableViewController.
     @IBAction func unwindToDetailViewController(segue: UIStoryboardSegue) {
 
     }
@@ -71,6 +72,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    // Сигвэй в NoteTableViewController. От кнопки "Заметки" идет сигвэй Show.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.destination is NoteTableViewController else { return }
     }
