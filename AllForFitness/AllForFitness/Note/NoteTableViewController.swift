@@ -14,7 +14,7 @@ class NoteTableViewController: UITableViewController {
     var items: [Note] = []
     
     @IBAction func addNewNote(_ sender: UIBarButtonItem) {
-        let ac = UIAlertController(title: "Добавьте заметку", message: "Добавьте новую заметку", preferredStyle: UIAlertControllerStyle.alert)
+        let ac = UIAlertController(title: "Добавьте заметку", message: "Добавьте новую заметку об этом упражнении", preferredStyle: UIAlertControllerStyle.alert)
         let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
             let textField = ac.textFields?[0] // Добавление в константу задачи, записанной в текстовое поле AlertController.
             self.saveNote(note: (textField?.text)!) // Вызывается функция, которая присваивает свойство taskToDo = textField.text объекту (экземпляру) класса Note и сохраняет этот экземпляр в массив items.

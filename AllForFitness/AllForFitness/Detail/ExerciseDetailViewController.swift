@@ -16,9 +16,14 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var noteButton: UIButton!
     var train: Training?
     
-    // Обратный сигвэй от NoteTableViewController. От кнопки "Назад" в Exit NoteTableViewController.
+    // Обратный сигвэй от NoteTableViewController. От кнопки "Назад" в Exit.
     @IBAction func unwindToDetailViewController(segue: UIStoryboardSegue) {
 
+    }
+    
+    // Обратный сигвэй от RateViewController при нажатии кнопки close (Close -> Exit).
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +39,15 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         imageView.image = UIImage(named: train!.image) // Отображение изображения упражнения.
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        // Рамка для кнопок.
+        let buttons = [rateButton, noteButton]
+        for button in buttons {
+            guard let button = button else { break }
+            button.layer.cornerRadius = 5
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.blue.cgColor
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +57,10 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Информация об упражнении:"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
