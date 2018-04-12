@@ -21,6 +21,11 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
 
     }
     
+    // Обратный сигвэй от RateViewController. От кнопки cancel в Exit RateViewController.
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = false // Не прячем Navigation Bar при проматывании вниз.
         navigationController?.setNavigationBarHidden(false, animated: true)
