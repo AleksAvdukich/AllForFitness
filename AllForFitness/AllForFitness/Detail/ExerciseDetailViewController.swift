@@ -50,6 +50,10 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         return 1
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Информация об упражнении:"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
