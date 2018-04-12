@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F466B5620680D3700B3DCFF /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */; };
 		1F466B5A20681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */; };
+		391CF7F6207FC05F00734A80 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF7F5207FC05F00734A80 /* RateViewController.swift */; };
 		39706ED1207D51E7004DA524 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39706ED0207D51E7004DA524 /* NoteTableViewController.swift */; };
 		39706ED3207D54C0004DA524 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39706ED2207D54C0004DA524 /* CoreDataStack.swift */; };
 		39706ED6207D5541004DA524 /* AllForFitness.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39706ED4207D5541004DA524 /* AllForFitness.xcdatamodeld */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailTableViewCell.swift; sourceTree = "<group>"; };
+		391CF7F5207FC05F00734A80 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		39706ED0207D51E7004DA524 /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteTableViewController.swift; path = AllForFitness/Note/NoteTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		39706ED2207D54C0004DA524 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		39706ED5207D5541004DA524 /* AllForFitness.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AllForFitness.xcdatamodel; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				39706ED2207D54C0004DA524 /* CoreDataStack.swift */,
 				39E194082067AC8400E1D67C /* FitnessTableViewController.swift */,
 				39E1940A2067B40800E1D67C /* FitnessTableViewCell.swift */,
+				391CF7F5207FC05F00734A80 /* RateViewController.swift */,
 				39706ED9207D632C004DA524 /* Note */,
 				39706ED4207D5541004DA524 /* AllForFitness.xcdatamodeld */,
 				39E96DD8207B898B00004785 /* Page */,
@@ -195,6 +198,7 @@
 				39E96DD5207B897300004785 /* PageViewController.swift in Sources */,
 				39706ED1207D51E7004DA524 /* NoteTableViewController.swift in Sources */,
 				39E1940D2067B48300E1D67C /* Training.swift in Sources */,
+				391CF7F6207FC05F00734A80 /* RateViewController.swift in Sources */,
 				39706ED3207D54C0004DA524 /* CoreDataStack.swift in Sources */,
 				39E193F72067AB2100E1D67C /* AppDelegate.swift in Sources */,
 				1F466B5A20681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift in Sources */,

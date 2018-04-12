@@ -42,7 +42,7 @@
                                                 <constraint firstAttribute="width" secondItem="lOl-JS-Syl" secondAttribute="height" multiplier="1:1" id="cRN-lH-qiX"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnQ-8i-7fc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnQ-8i-7fc">
                                             <rect key="frame" x="95" y="20" width="254" height="44.5"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -160,6 +160,9 @@
                                     <constraint firstAttribute="height" constant="50" id="w2f-te-Kog"/>
                                 </constraints>
                                 <state key="normal" image="like"/>
+                                <connections>
+                                    <segue destination="EMW-PE-ASq" kind="showDetail" id="fNv-fJ-7GU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -190,6 +193,32 @@
             </objects>
             <point key="canvasLocation" x="941.60000000000002" y="-123.68815592203899"/>
         </scene>
+        <!--Rate View Controller-->
+        <scene sceneID="Hy7-I1-ncN">
+            <objects>
+                <viewController id="EMW-PE-ASq" customClass="RateViewController" customModule="AllForFitness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IOz-sW-2pL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageRate" translatesAutoresizingMaskIntoConstraints="NO" id="6r6-kI-WtJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6r6-kI-WtJ" firstAttribute="leading" secondItem="yEu-E8-DxM" secondAttribute="leading" id="j68-LA-WNm"/>
+                            <constraint firstItem="6r6-kI-WtJ" firstAttribute="bottom" secondItem="yEu-E8-DxM" secondAttribute="bottom" id="jBs-Nm-ufY"/>
+                            <constraint firstItem="6r6-kI-WtJ" firstAttribute="top" secondItem="IOz-sW-2pL" secondAttribute="top" id="jiF-4z-cbv"/>
+                            <constraint firstItem="6r6-kI-WtJ" firstAttribute="trailing" secondItem="yEu-E8-DxM" secondAttribute="trailing" id="wpU-lH-HE9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yEu-E8-DxM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MNT-G9-QUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1748" y="-546.47676161919048"/>
+        </scene>
         <!--Заметки-->
         <scene sceneID="Fc7-pd-Dks">
             <objects>
@@ -206,7 +235,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NoteLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mC-Fn-5zA">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заметка" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mC-Fn-5zA">
                                             <rect key="frame" x="16" y="12" width="343" height="21"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -246,7 +275,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A85-H2-rdk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Rb2-kB-DHW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2496.8000000000002" y="-124.58770614692655"/>
+            <point key="canvasLocation" x="2524" y="251"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="gyW-Ia-5Lg">
@@ -264,13 +293,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pi-Wx-ExX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заголовок" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pi-Wx-ExX">
                                 <rect key="frame" x="16" y="40" width="343" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="Fbv-jz-6yq"/>
                                     <constraint firstAttribute="width" secondItem="5pi-Wx-ExX" secondAttribute="height" multiplier="343:32" id="Qc0-r1-98x"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -304,13 +333,13 @@
                                     <constraint firstAttribute="width" secondItem="QZe-bj-yyk" secondAttribute="height" multiplier="375:37" id="xuM-sw-8R3"/>
                                 </constraints>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subheader" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBC-t8-Nxd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подзаголовок" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBC-t8-Nxd">
                                 <rect key="frame" x="16" y="89" width="343" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="K1e-0s-VMH"/>
                                     <constraint firstAttribute="width" secondItem="vBC-t8-Nxd" secondAttribute="height" multiplier="343:80" id="KVz-Wx-TwP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -381,10 +410,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hqg-xW-MHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1734" y="-124"/>
+            <point key="canvasLocation" x="1748" y="252"/>
         </scene>
     </scenes>
     <resources>
+        <image name="imageRate" width="621" height="1104"/>
         <image name="like" width="712" height="708"/>
         <image name="note" width="512" height="512"/>
     </resources>
