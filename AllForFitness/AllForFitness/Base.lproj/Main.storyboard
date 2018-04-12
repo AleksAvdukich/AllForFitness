@@ -204,9 +204,31 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageRate" translatesAutoresizingMaskIntoConstraints="NO" id="6r6-kI-WtJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddu-dd-XAC">
+                                <rect key="frame" x="309" y="36" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ddu-dd-XAC" secondAttribute="height" multiplier="1:1" id="gBK-Xy-KQj"/>
+                                    <constraint firstAttribute="height" constant="50" id="ymU-XC-mzW"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Как Вам данное упражнение?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTM-aK-dGJ">
+                                <rect key="frame" x="16" y="158" width="343" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="4tT-6w-c95"/>
+                                    <constraint firstAttribute="height" constant="51" id="oG6-pZ-aZy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="23"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yEu-E8-DxM" firstAttribute="trailing" secondItem="Ddu-dd-XAC" secondAttribute="trailing" constant="16" id="1Go-f4-xjQ"/>
+                            <constraint firstItem="Ddu-dd-XAC" firstAttribute="top" secondItem="yEu-E8-DxM" secondAttribute="top" constant="16" id="JN7-ab-9k9"/>
+                            <constraint firstItem="tTM-aK-dGJ" firstAttribute="centerX" secondItem="6r6-kI-WtJ" secondAttribute="centerX" id="QRG-T9-lxP"/>
+                            <constraint firstItem="tTM-aK-dGJ" firstAttribute="top" secondItem="Ddu-dd-XAC" secondAttribute="bottom" constant="72" id="TnX-Uy-Bec"/>
                             <constraint firstItem="6r6-kI-WtJ" firstAttribute="leading" secondItem="yEu-E8-DxM" secondAttribute="leading" id="j68-LA-WNm"/>
                             <constraint firstItem="6r6-kI-WtJ" firstAttribute="bottom" secondItem="yEu-E8-DxM" secondAttribute="bottom" id="jBs-Nm-ufY"/>
                             <constraint firstItem="6r6-kI-WtJ" firstAttribute="top" secondItem="IOz-sW-2pL" secondAttribute="top" id="jiF-4z-cbv"/>
@@ -414,6 +436,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close" width="50" height="50"/>
         <image name="imageRate" width="621" height="1104"/>
         <image name="like" width="712" height="708"/>
         <image name="note" width="512" height="512"/>
