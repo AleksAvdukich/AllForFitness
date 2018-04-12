@@ -33,11 +33,21 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.estimatedRowHeight = 38
         tableView.rowHeight = UITableViewAutomaticDimension // Автоматическое увеличение высоты строки. Поскольку у ячейки есть строгие констрэйнты относительно строки, следовательно, когда в ячейке большой текст, то растягивается строка, а значит, растягивается и ячейка.
         title = train!.name // В Navigation Bar отображается название тренировки. Это название имеет цвет и шрифт такой, какой прописали в AppDelegate.swift.
         imageView.image = UIImage(named: train!.image) // Отображение изображения упражнения.
         
+        // Рамка для кнопок rateButton и noteButton.
+        let buttons = [rateButton, noteButton]
+        for button in buttons {
+            guard let button = button else { break }
+            button.layer.cornerRadius = 5
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.blue.cgColor
+        }
+    
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
