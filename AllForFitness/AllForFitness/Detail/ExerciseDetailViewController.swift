@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -24,6 +25,14 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     // Обратный сигвэй от RateViewController при нажатии кнопки close (Close -> Exit).
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         
+    }
+    
+    // Обратный сигвэй от RateViewController при нажатии кнопок лайк/дизлайк (RateViewController -> Exit). Сигвэй имеет идентификатор "unwindSegueToDVC". Вызывается он в контроллере RateViewController при нажатии кнопок с тэгом 0 и 1 в @IBAction func rateRestaurant(sender: UIButton)
+    @IBAction func unwindSegueToDetailViewController(segue: UIStoryboardSegue) {
+        guard segue.identifier == "unwindSegueToDVC" else { return }
+        guard let svc = segue.source as? RateViewController else { return }
+        guard let rating = svc.trainRating else { return }
+        rateButton.setImage(UIImage(named: rating), for: UIControlState.normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
