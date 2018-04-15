@@ -225,20 +225,51 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4W-Gw-oDN">
+                                <rect key="frame" x="205" y="217" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="XTs-oU-7y9"/>
+                                    <constraint firstAttribute="width" constant="80" id="aAW-qp-2Av"/>
+                                </constraints>
+                                <state key="normal" image="dislike"/>
+                                <connections>
+                                    <action selector="rateTrainWithSender:" destination="Wzv-ss-Ubh" eventType="touchUpInside" id="BYg-3Z-sDE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCb-ia-6nz">
+                                <rect key="frame" x="90" y="217" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0L1-GP-gT7"/>
+                                    <constraint firstAttribute="width" constant="80" id="Ogn-U5-jD0"/>
+                                </constraints>
+                                <state key="normal" image="like"/>
+                                <connections>
+                                    <action selector="rateTrainWithSender:" destination="Wzv-ss-Ubh" eventType="touchUpInside" id="Id8-3H-v3p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pWI-VU-JDV" firstAttribute="top" secondItem="gsG-V9-Uhf" secondAttribute="top" constant="16" id="9Ku-xR-gUM"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="top" secondItem="HQJ-gk-Leb" secondAttribute="top" constant="20" id="C0W-qY-qYy"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="trailing" secondItem="HQJ-gk-Leb" secondAttribute="trailing" id="IBo-Hl-OU4"/>
+                            <constraint firstItem="FCb-ia-6nz" firstAttribute="top" secondItem="BIo-0I-Bps" secondAttribute="bottom" constant="25" id="LcO-dV-tCd"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="trailing" secondItem="pWI-VU-JDV" secondAttribute="trailing" constant="16" id="OI6-ou-zlj"/>
                             <constraint firstItem="BIo-0I-Bps" firstAttribute="top" secondItem="pWI-VU-JDV" secondAttribute="bottom" constant="63" id="PXj-xi-x7g"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="bottom" secondItem="HQJ-gk-Leb" secondAttribute="bottom" id="RA1-eE-7B8"/>
                             <constraint firstItem="BIo-0I-Bps" firstAttribute="centerX" secondItem="HQJ-gk-Leb" secondAttribute="centerX" id="Z5U-4V-o1E"/>
+                            <constraint firstItem="F4W-Gw-oDN" firstAttribute="top" secondItem="BIo-0I-Bps" secondAttribute="bottom" constant="25" id="dGB-66-gXz"/>
+                            <constraint firstItem="gsG-V9-Uhf" firstAttribute="trailing" secondItem="F4W-Gw-oDN" secondAttribute="trailing" constant="90" id="ehh-AJ-dPh"/>
                             <constraint firstItem="HQJ-gk-Leb" firstAttribute="leading" secondItem="gsG-V9-Uhf" secondAttribute="leading" id="vdc-KY-tOy"/>
+                            <constraint firstItem="FCb-ia-6nz" firstAttribute="leading" secondItem="gsG-V9-Uhf" secondAttribute="leading" constant="90" id="yQe-Bq-tI3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gsG-V9-Uhf"/>
                     </view>
+                    <connections>
+                        <outlet property="dislike" destination="F4W-Gw-oDN" id="fDg-sp-cSj"/>
+                        <outlet property="like" destination="FCb-ia-6nz" id="moO-ZS-9FP"/>
+                        <segue destination="VjV-1Q-OaL" kind="unwind" identifier="unwindSegueToDVC" unwindAction="unwindSegueToDetailViewControllerWithSegue:" id="SYW-Zt-AGx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPO-ON-UF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="VjV-1Q-OaL" userLabel="Exit" sceneMemberID="exit"/>
@@ -441,6 +472,7 @@
     </scenes>
     <resources>
         <image name="close" width="50" height="50"/>
+        <image name="dislike" width="705" height="703"/>
         <image name="imageRate" width="621" height="1104"/>
         <image name="like" width="712" height="708"/>
         <image name="note" width="512" height="512"/>

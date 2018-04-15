@@ -10,6 +10,19 @@ import UIKit
 
 class RateViewController: UIViewController {
 
+    @IBOutlet weak var like: UIButton!
+    @IBOutlet weak var dislike: UIButton!
+    var trainRating: String?
+    
+    @IBAction func rateTrain(sender: UIButton) {
+        switch sender.tag {
+        case 0: trainRating = "like"
+        case 1: trainRating = "dislike"
+        default: break
+        }
+        performSegue(withIdentifier: "unwindSegueToDVC", sender: sender) // Принудительный переход в обратную сторону. Срабатывает @IBAction unwindSegueToDetailViewController в ExerciseDetailViewController, т.к. именно его вызывает сигвэй с идентификатором "unwindSegueToDVC".
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
