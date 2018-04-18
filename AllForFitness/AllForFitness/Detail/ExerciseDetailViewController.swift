@@ -15,6 +15,8 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var rateButton: UIButton!
     @IBOutlet weak var noteButton: UIButton!
+    @IBOutlet weak var popularButton: UIButton!
+    
     var train: Training?
     
     // Обратный сигвэй от NoteTableViewController. От кнопки "Назад" в Exit.
@@ -50,7 +52,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         // Рамка для кнопок.
-        let buttons = [rateButton, noteButton]
+        let buttons = [rateButton, noteButton, popularButton]
         for button in buttons {
             guard let button = button else { break }
             button.layer.cornerRadius = 5
@@ -104,4 +106,25 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.destination is NoteTableViewController else { return }
     }
+
+    @IBAction func popularButtonPressed(_ sender: UIButton) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
+            let exercise = Train(context: context)
+            exercise.name = train?.name
+            exercise.image = train?.image
+            do {
+                try context.save()
+                
+                let ac = UIAlertController(title: "Сохранение", message: "Сохранение удалось", preferredStyle: UIAlertControllerStyle.alert)
+                let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                ac.addAction(ok) // Отображение кнопки OK в AlertController.
+                present(ac, animated: true, completion: nil)
+                
+                print("Сохранение удалось!")
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }

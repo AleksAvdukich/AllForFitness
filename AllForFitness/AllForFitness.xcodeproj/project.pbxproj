@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F466B5620680D3700B3DCFF /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */; };
 		1F466B5A20681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */; };
+		1FB2EEEA20877E7F0087FC0A /* PopularTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2EEE920877E7F0087FC0A /* PopularTableViewController.swift */; };
+		1FB2EEEC208783AB0087FC0A /* PopularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2EEEB208783AB0087FC0A /* PopularTableViewCell.swift */; };
 		391CF7F8207FC6C700734A80 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF7F7207FC6C700734A80 /* RateViewController.swift */; };
 		39706ED1207D51E7004DA524 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39706ED0207D51E7004DA524 /* NoteTableViewController.swift */; };
 		39706ED3207D54C0004DA524 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39706ED2207D54C0004DA524 /* CoreDataStack.swift */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailTableViewCell.swift; sourceTree = "<group>"; };
+		1FB2EEE920877E7F0087FC0A /* PopularTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTableViewController.swift; sourceTree = "<group>"; };
+		1FB2EEEB208783AB0087FC0A /* PopularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTableViewCell.swift; sourceTree = "<group>"; };
 		391CF7F7207FC6C700734A80 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		39706ED0207D51E7004DA524 /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteTableViewController.swift; path = AllForFitness/Note/NoteTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		39706ED2207D54C0004DA524 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -57,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FB2EEED208783B80087FC0A /* Popular */ = {
+			isa = PBXGroup;
+			children = (
+				1FB2EEE920877E7F0087FC0A /* PopularTableViewController.swift */,
+				1FB2EEEB208783AB0087FC0A /* PopularTableViewCell.swift */,
+			);
+			path = Popular;
+			sourceTree = "<group>";
+		};
 		39706ED9207D632C004DA524 /* Note */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,10 +103,11 @@
 				39E194082067AC8400E1D67C /* FitnessTableViewController.swift */,
 				39E1940A2067B40800E1D67C /* FitnessTableViewCell.swift */,
 				391CF7F7207FC6C700734A80 /* RateViewController.swift */,
+				1FB2EEED208783B80087FC0A /* Popular */,
 				39706ED9207D632C004DA524 /* Note */,
-				39706ED4207D5541004DA524 /* AllForFitness.xcdatamodeld */,
 				39E96DD8207B898B00004785 /* Page */,
 				39E194102067CBCA00E1D67C /* Detail */,
+				39706ED4207D5541004DA524 /* AllForFitness.xcdatamodeld */,
 				39E193FA2067AB2100E1D67C /* Main.storyboard */,
 				39E1940C2067B48300E1D67C /* Training.swift */,
 				39E193FD2067AB2100E1D67C /* Assets.xcassets */,
@@ -194,9 +208,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				39E96DD7207B898500004785 /* ContentViewController.swift in Sources */,
+				1FB2EEEC208783AB0087FC0A /* PopularTableViewCell.swift in Sources */,
 				39E194092067AC8400E1D67C /* FitnessTableViewController.swift in Sources */,
 				39E96DD5207B897300004785 /* PageViewController.swift in Sources */,
 				39706ED1207D51E7004DA524 /* NoteTableViewController.swift in Sources */,
+				1FB2EEEA20877E7F0087FC0A /* PopularTableViewController.swift in Sources */,
 				39E1940D2067B48300E1D67C /* Training.swift in Sources */,
 				391CF7F8207FC6C700734A80 /* RateViewController.swift in Sources */,
 				39706ED3207D54C0004DA524 /* CoreDataStack.swift in Sources */,

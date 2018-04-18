@@ -115,12 +115,12 @@ class FitnessTableViewController: UITableViewController {
                 self.present(activityController, animated: true, completion: nil)
             }
         }
-//        let delete = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Удалить") { (action: UITableViewRowAction, indexPath) -> Void in
-//            self.trains.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
+        //        let delete = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Удалить") { (action: UITableViewRowAction, indexPath) -> Void in
+        //            self.trains.remove(at: indexPath.row)
+        //            tableView.deleteRows(at: [indexPath], with: .fade)
+        //        }
         share.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-//        delete.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        //        delete.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         return [share]
     }
     
