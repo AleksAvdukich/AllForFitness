@@ -485,24 +485,24 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NCd-F4-0B1">
                                             <rect key="frame" x="15" y="10" width="65" height="65"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="65" id="GSX-gQ-Q3H"/>
-                                                <constraint firstAttribute="width" constant="65" id="Zb2-T2-suY"/>
+                                                <constraint firstAttribute="height" constant="65" id="0KQ-mX-UI7"/>
+                                                <constraint firstAttribute="width" secondItem="NCd-F4-0B1" secondAttribute="height" multiplier="1:1" id="rxR-77-S63"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaK-On-KKU">
-                                            <rect key="frame" x="95" y="20" width="254" height="44.5"/>
+                                            <rect key="frame" x="95" y="20" width="254" height="45"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="qaK-On-KKU" firstAttribute="leading" secondItem="NCd-F4-0B1" secondAttribute="trailing" constant="15" id="JVR-6K-GHi"/>
                                         <constraint firstItem="qaK-On-KKU" firstAttribute="top" secondItem="8ZT-Kr-aF4" secondAttribute="top" constant="20" id="MbE-X3-whR"/>
-                                        <constraint firstAttribute="bottom" secondItem="NCd-F4-0B1" secondAttribute="bottom" constant="9.5" id="R01-LO-IVb"/>
                                         <constraint firstAttribute="trailing" secondItem="qaK-On-KKU" secondAttribute="trailing" constant="26" id="UmN-CJ-UK1"/>
+                                        <constraint firstItem="qaK-On-KKU" firstAttribute="leading" secondItem="NCd-F4-0B1" secondAttribute="trailing" constant="15" id="aEz-gx-xzi"/>
                                         <constraint firstItem="NCd-F4-0B1" firstAttribute="top" secondItem="8ZT-Kr-aF4" secondAttribute="top" constant="10" id="eTo-6L-uQt"/>
                                         <constraint firstAttribute="bottom" secondItem="qaK-On-KKU" secondAttribute="bottom" constant="20" id="eqI-xz-xet"/>
+                                        <constraint firstAttribute="bottom" secondItem="NCd-F4-0B1" secondAttribute="bottom" constant="9.5" id="kmO-4y-M1I"/>
                                         <constraint firstItem="NCd-F4-0B1" firstAttribute="leading" secondItem="8ZT-Kr-aF4" secondAttribute="leading" constant="15" id="wJV-yj-NhW"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -521,7 +521,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHg-Bg-vja" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="462" y="660"/>
+            <point key="canvasLocation" x="437.60000000000002" y="659.82008995502258"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8kq-PZ-JyJ">

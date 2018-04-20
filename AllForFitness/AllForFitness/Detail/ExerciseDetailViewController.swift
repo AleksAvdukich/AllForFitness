@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    // NSFetchedResultsControllerDelegate
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
@@ -18,6 +19,8 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var popularButton: UIButton!
     
     var train: Training?
+    var fetchResultsController: NSFetchedResultsController<Popular>!
+    var popularExercises: [Popular] = []
     
     // Обратный сигвэй от NoteTableViewController. От кнопки "Назад" в Exit.
     @IBAction func unwindToDetailViewController(segue: UIStoryboardSegue) {
@@ -49,6 +52,20 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         title = train!.name // В Navigation Bar отображается название тренировки. Это название имеет цвет и шрифт такой, какой прописали в AppDelegate.swift.
         imageView.image = UIImage(named: train!.image) // Отображение изображения упражнения.
         
+        let fetchRequest: NSFetchRequest<Popular> = Popular.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
+            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+//            fetchResultsController.delegate = self
+            do {
+                try fetchResultsController.performFetch()
+                popularExercises = fetchResultsController.fetchedObjects!
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+        
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         // Рамка для кнопок.
@@ -65,6 +82,31 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Fetch results controller delegate
+    
+//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.beginUpdates()
+//    }
+//
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//
+//        switch type {
+//        case .insert: guard let indexPath = newIndexPath else { break }
+//        tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+//        case .delete: guard let indexPath = indexPath else { break }
+//        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+//        case .update: guard let indexPath = indexPath else { break }
+//        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+//        default: tableView.reloadData()
+//        }
+//        popularExercises = controller.fetchedObjects as! [Train]
+//
+//    }
+//
+//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.endUpdates()
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -109,22 +151,50 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
 
     @IBAction func popularButtonPressed(_ sender: UIButton) {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
-            let exercise = Train(context: context)
+            let exercise = Popular(context: context)
             exercise.name = train?.name
             exercise.image = train?.image
             do {
-                try context.save()
-                
-                let ac = UIAlertController(title: "Сохранение", message: "Сохранение удалось", preferredStyle: UIAlertControllerStyle.alert)
-                let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-                ac.addAction(ok) // Отображение кнопки OK в AlertController.
-                present(ac, animated: true, completion: nil)
-                
-                print("Сохранение удалось!")
+                if !popularExercises.isEmpty {
+                    for i in 0..<popularExercises.count {
+                        var counter = 0
+                        if exercise.name == popularExercises[i].name {
+                            counter += 1
+                        }
+                        if counter == 0 {
+                            try context.save()
+
+                            let ac = UIAlertController(title: "Сохранение удалось", message: "Теперь Вы можете посмотреть данное упражнение в разделе Избранное", preferredStyle: UIAlertControllerStyle.alert)
+                            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                            ac.addAction(ok)
+                            present(ac, animated: true, completion: nil)
+
+                            print("Сохранение удалось!")
+                        } else {
+                            context.delete(exercise)
+                            try context.save()
+                            
+                            let ac = UIAlertController(title: "Сохранение не удалось", message: "Данное упражнение уже есть в разделе Избранное", preferredStyle: UIAlertControllerStyle.alert)
+                            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                            ac.addAction(ok)
+                            present(ac, animated: true, completion: nil)
+                            
+                            print("Сохранение не удалось!")
+                        }
+                    }
+                } else {
+                    try context.save()
+
+                    let ac = UIAlertController(title: "Сохранение удалось!", message: "Теперь Вы можете посмотреть данное упражнение в разделе Избранное", preferredStyle: UIAlertControllerStyle.alert)
+                    let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                    ac.addAction(ok)
+                    present(ac, animated: true, completion: nil)
+
+                    print("Сохранение удалось!")
+                }
             } catch let error as NSError {
-                print(error.localizedDescription)
+                    print(error.localizedDescription)
             }
         }
     }
-    
 }

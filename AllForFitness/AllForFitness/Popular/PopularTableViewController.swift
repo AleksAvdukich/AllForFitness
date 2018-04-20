@@ -11,13 +11,13 @@ import CoreData
 
 class PopularTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var fetchResultsController: NSFetchedResultsController<Train>!
-    var exercises: [Train] = []
+    var fetchResultsController: NSFetchedResultsController<Popular>!
+    var exercises: [Popular] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fetchRequest: NSFetchRequest<Train> = Train.fetchRequest()
+        let fetchRequest: NSFetchRequest<Popular> = Popular.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
          if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
@@ -55,7 +55,7 @@ class PopularTableViewController: UITableViewController, NSFetchedResultsControl
              tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         default: tableView.reloadData()
         }
-        exercises = controller.fetchedObjects as! [Train]
+        exercises = controller.fetchedObjects as! [Popular]
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -77,8 +77,23 @@ class PopularTableViewController: UITableViewController, NSFetchedResultsControl
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PopularTableViewCell
         cell.popularImageView.image = UIImage(named: exercises[indexPath.row].image!)
+        cell.popularImageView.layer.cornerRadius = 32.5
+        cell.popularImageView.clipsToBounds = true
         cell.popularNameLabel.text = exercises[indexPath.row].name
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext
+        guard editingStyle == .delete else { return }
+        context?.delete(exercises[indexPath.row])
+        exercises.remove(at: indexPath.row) 
+        // Пересохранение контекста.
+        do {
+            try context?.save()
+        } catch let error as NSError {
+            print("Error: \(error), description \(error.userInfo)")
+        }
     }
 }
 
