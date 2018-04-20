@@ -21,6 +21,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     var train: Training?
     var fetchResultsController: NSFetchedResultsController<Popular>!
     var popularExercises: [Popular] = []
+    var counterPopularButtonPressed = 0
     
     // Обратный сигвэй от NoteTableViewController. От кнопки "Назад" в Exit.
     @IBAction func unwindToDetailViewController(segue: UIStoryboardSegue) {
@@ -154,46 +155,48 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
             let exercise = Popular(context: context)
             exercise.name = train?.name
             exercise.image = train?.image
+            var counter = 0
+            counterPopularButtonPressed += 1
             do {
-                if !popularExercises.isEmpty {
+                if counterPopularButtonPressed == 1 {
                     for i in 0..<popularExercises.count {
-                        var counter = 0
                         if exercise.name == popularExercises[i].name {
                             counter += 1
                         }
-                        if counter == 0 {
-                            try context.save()
-
-                            let ac = UIAlertController(title: "Сохранение удалось", message: "Теперь Вы можете посмотреть данное упражнение в разделе Избранное", preferredStyle: UIAlertControllerStyle.alert)
-                            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-                            ac.addAction(ok)
-                            present(ac, animated: true, completion: nil)
-
-                            print("Сохранение удалось!")
-                        } else {
-                            context.delete(exercise)
-                            try context.save()
-                            
-                            let ac = UIAlertController(title: "Сохранение не удалось", message: "Данное упражнение уже есть в разделе Избранное", preferredStyle: UIAlertControllerStyle.alert)
-                            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-                            ac.addAction(ok)
-                            present(ac, animated: true, completion: nil)
-                            
-                            print("Сохранение не удалось!")
-                        }
+                    }
+                    if counter == 0 {
+                        try context.save()
+                        
+                        let ac = UIAlertController(title: "Сохранение удалось!", message: "Теперь Вы можете посмотреть данное упражнение в разделе Избранное", preferredStyle: UIAlertControllerStyle.alert)
+                        let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                        ac.addAction(ok)
+                        present(ac, animated: true, completion: nil)
+                        
+                        print("Сохранение удалось!")
+                    } else {
+                        context.delete(exercise)
+                        try context.save()
+                        
+                        let ac = UIAlertController(title: "Сохранение не удалось!", message: "Данное упражнение уже есть в разделе Избранное", preferredStyle: UIAlertControllerStyle.alert)
+                        let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                        ac.addAction(ok)
+                        present(ac, animated: true, completion: nil)
+                        
+                        print("Сохранение не удалось!")
                     }
                 } else {
+                    context.delete(exercise)
                     try context.save()
-
-                    let ac = UIAlertController(title: "Сохранение удалось!", message: "Теперь Вы можете посмотреть данное упражнение в разделе Избранное", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    let ac = UIAlertController(title: "Сохранение не удалось!", message: "Данное упражнение уже есть в разделе Избранное", preferredStyle: UIAlertControllerStyle.alert)
                     let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                     ac.addAction(ok)
                     present(ac, animated: true, completion: nil)
-
-                    print("Сохранение удалось!")
+                    
+                    print("Сохранение не удалось!")
                 }
             } catch let error as NSError {
-                    print(error.localizedDescription)
+                print(error.localizedDescription)
             }
         }
     }
