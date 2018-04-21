@@ -20,13 +20,13 @@ class FitnessTableViewController: UITableViewController {
         Training(name: "Ножницы", type: "Комлексное", image: "nozhnitsy.png", description: "Универсальное упражнение, помогающее проработать все мышцы брюшной полости, а также избавиться от лишних килограммов в этой проблемной области."),
         Training(name: "Повороты с упором на локоть", type: "Комлексное", image: "povoroty.png", description: "Упражнение, направленное на проработку мышц бокового пресса и помогающее развить координацию движений."),
         Training(name: "Приседания до параллели", type: "Базовое", image: "prisedaniya.png", description: "Базовое упражнение, являющееся одним из важнейших для тренировки ягодиц."),
-        Training(name: "Прогибы назад", type: "Базовое", image: "berezka.png", description: "Упражнение, помогающее размяться и растянуть спину, подготовив ее к дальнейшим нагрузкам."),
+        Training(name: "Прогибы назад", type: "Базовое", image: "progiby.png", description: "Упражнение, помогающее размяться и растянуть спину, подготовив ее к дальнейшим нагрузкам."),
         Training(name: "Прыжки в сторону", type: "Комлексное", image: "pryzhki.png", description: "Довольно специфическое, но оттого не менее эффективное упражнение, помогающее проработать мышцы бедер, ягодицы и квадрицепсы."),
         Training(name: "Двойные скручивания", type: "Комлексное", image: "skruchivaniya.png", description: "Сложное упражнение, направленное на проработку верхнего и нижнего отделов пресса. Выполнять его можно только предварительно размявшись."),
         Training(name: "Выпады", type: "Базовое", image: "vypady.png", description: "Базовое упражнение для тренировки ягодиц.")]
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.hidesBarsOnSwipe = true // Прячем Navigation Bar при проматывании вниз.
+//        navigationController?.hidesBarsOnSwipe = true // Прячем Navigation Bar при проматывании вниз.
     }
     
     func filterContentFor(searchText text: String) {
@@ -37,6 +37,12 @@ class FitnessTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let attributes = [
+            NSAttributedStringKey.foregroundColor: UIColor.blue
+            ]
+        navigationController?.navigationBar.largeTitleTextAttributes = attributes
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self

@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 
 class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    // NSFetchedResultsControllerDelegate
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
@@ -42,12 +41,15 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.hidesBarsOnSwipe = false // Не прячем Navigation Bar при проматывании вниз.
-        navigationController?.setNavigationBarHidden(false, animated: true)
+//        navigationController?.hidesBarsOnSwipe = false // Не прячем Navigation Bar при проматывании вниз.
+//        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.largeTitleDisplayMode = .never
+        
         tableView.estimatedRowHeight = 38
         tableView.rowHeight = UITableViewAutomaticDimension // Автоматическое увеличение высоты строки. Поскольку у ячейки есть строгие констрэйнты относительно строки, следовательно, когда в ячейке большой текст, то растягивается строка, а значит, растягивается и ячейка.
         title = train!.name // В Navigation Bar отображается название тренировки. Это название имеет цвет и шрифт такой, какой прописали в AppDelegate.swift.
@@ -58,7 +60,6 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         fetchRequest.sortDescriptors = [sortDescriptor]
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
             fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-//            fetchResultsController.delegate = self
             do {
                 try fetchResultsController.performFetch()
                 popularExercises = fetchResultsController.fetchedObjects!
@@ -83,31 +84,6 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Fetch results controller delegate
-    
-//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-//        tableView.beginUpdates()
-//    }
-//
-//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-//
-//        switch type {
-//        case .insert: guard let indexPath = newIndexPath else { break }
-//        tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-//        case .delete: guard let indexPath = indexPath else { break }
-//        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-//        case .update: guard let indexPath = indexPath else { break }
-//        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-//        default: tableView.reloadData()
-//        }
-//        popularExercises = controller.fetchedObjects as! [Train]
-//
-//    }
-//
-//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-//        tableView.endUpdates()
-//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

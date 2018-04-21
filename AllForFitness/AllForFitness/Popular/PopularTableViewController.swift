@@ -17,6 +17,12 @@ class PopularTableViewController: UITableViewController, NSFetchedResultsControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let attributes = [
+            NSAttributedStringKey.foregroundColor: UIColor.blue
+        ]
+        navigationController?.navigationBar.largeTitleTextAttributes = attributes
+        
         let fetchRequest: NSFetchRequest<Popular> = Popular.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
