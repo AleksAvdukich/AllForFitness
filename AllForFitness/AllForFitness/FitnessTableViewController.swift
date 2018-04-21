@@ -38,10 +38,10 @@ class FitnessTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Новый NavBar.
         navigationController?.navigationBar.prefersLargeTitles = true
         let attributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.blue
-            ]
+            NSAttributedStringKey.foregroundColor: UIColor.blue]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
         
         searchController = UISearchController(searchResultsController: nil)

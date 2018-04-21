@@ -17,10 +17,10 @@ class PopularTableViewController: UITableViewController, NSFetchedResultsControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // NavBar.
         navigationController?.navigationBar.prefersLargeTitles = true
         let attributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.blue
-        ]
+            NSAttributedStringKey.foregroundColor: UIColor.blue]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
         
         let fetchRequest: NSFetchRequest<Popular> = Popular.fetchRequest()
