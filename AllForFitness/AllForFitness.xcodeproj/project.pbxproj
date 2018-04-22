@@ -11,6 +11,8 @@
 		1F466B5A20681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */; };
 		1FB2EEEA20877E7F0087FC0A /* PopularTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2EEE920877E7F0087FC0A /* PopularTableViewController.swift */; };
 		1FB2EEEC208783AB0087FC0A /* PopularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2EEEB208783AB0087FC0A /* PopularTableViewCell.swift */; };
+		3911178B208C9F9D0098DEA4 /* SaveNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3911178A208C9F9D0098DEA4 /* SaveNoteTableViewController.swift */; };
+		3911178D208C9FAB0098DEA4 /* EditNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3911178C208C9FAB0098DEA4 /* EditNoteTableViewController.swift */; };
 		391CF7F8207FC6C700734A80 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF7F7207FC6C700734A80 /* RateViewController.swift */; };
 		39706ED1207D51E7004DA524 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39706ED0207D51E7004DA524 /* NoteTableViewController.swift */; };
 		39706ED3207D54C0004DA524 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39706ED2207D54C0004DA524 /* CoreDataStack.swift */; };
@@ -32,6 +34,8 @@
 		1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1FB2EEE920877E7F0087FC0A /* PopularTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTableViewController.swift; sourceTree = "<group>"; };
 		1FB2EEEB208783AB0087FC0A /* PopularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTableViewCell.swift; sourceTree = "<group>"; };
+		3911178A208C9F9D0098DEA4 /* SaveNoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNoteTableViewController.swift; sourceTree = "<group>"; };
+		3911178C208C9FAB0098DEA4 /* EditNoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteTableViewController.swift; sourceTree = "<group>"; };
 		391CF7F7207FC6C700734A80 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		39706ED0207D51E7004DA524 /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteTableViewController.swift; path = AllForFitness/Note/NoteTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		39706ED2207D54C0004DA524 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 			children = (
 				39706ED0207D51E7004DA524 /* NoteTableViewController.swift */,
 				39706ED7207D6096004DA524 /* NoteTableViewCell.swift */,
+				3911178A208C9F9D0098DEA4 /* SaveNoteTableViewController.swift */,
+				3911178C208C9FAB0098DEA4 /* EditNoteTableViewController.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -215,10 +221,12 @@
 				1FB2EEEA20877E7F0087FC0A /* PopularTableViewController.swift in Sources */,
 				39E1940D2067B48300E1D67C /* Training.swift in Sources */,
 				391CF7F8207FC6C700734A80 /* RateViewController.swift in Sources */,
+				3911178B208C9F9D0098DEA4 /* SaveNoteTableViewController.swift in Sources */,
 				39706ED3207D54C0004DA524 /* CoreDataStack.swift in Sources */,
 				39E193F72067AB2100E1D67C /* AppDelegate.swift in Sources */,
 				1F466B5A20681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift in Sources */,
 				39E1940B2067B40800E1D67C /* FitnessTableViewCell.swift in Sources */,
+				3911178D208C9FAB0098DEA4 /* EditNoteTableViewController.swift in Sources */,
 				39706ED6207D5541004DA524 /* AllForFitness.xcdatamodeld in Sources */,
 				1F466B5620680D3700B3DCFF /* ExerciseDetailViewController.swift in Sources */,
 				39706ED8207D6096004DA524 /* NoteTableViewCell.swift in Sources */,
@@ -366,7 +374,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = AllForFitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -382,7 +390,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = AllForFitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

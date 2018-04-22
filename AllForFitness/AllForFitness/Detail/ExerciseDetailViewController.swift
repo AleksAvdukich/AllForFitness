@@ -14,7 +14,6 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var rateButton: UIButton!
-    @IBOutlet weak var noteButton: UIButton!
     @IBOutlet weak var popularButton: UIButton!
     
     var train: Training?
@@ -22,10 +21,10 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     var popularExercises: [Popular] = []
     var counterPopularButtonPressed = 0
     
-    // Обратный сигвэй от NoteTableViewController. От кнопки "Назад" в Exit.
-    @IBAction func unwindToDetailViewController(segue: UIStoryboardSegue) {
-
-    }
+//    // Обратный сигвэй от NoteTableViewController. От кнопки "Назад" в Exit.
+//    @IBAction func unwindToDetailViewController(segue: UIStoryboardSegue) {
+//
+//    }
     
     // Обратный сигвэй от RateViewController при нажатии кнопки close (Close -> Exit).
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
@@ -71,7 +70,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         // Рамка для кнопок.
-        let buttons = [rateButton, noteButton, popularButton]
+        let buttons = [rateButton, popularButton]
         for button in buttons {
             guard let button = button else { break }
             button.layer.cornerRadius = 5
