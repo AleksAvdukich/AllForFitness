@@ -21,10 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Меняем цвет фона нашего статус бара.
 //        let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 20)) // Рамка для StatusBar.
-//        statusBarView.tintColor = #colorLiteral(red: 0.8988252396, green: 0.8988252396, blue: 0.8988252396, alpha: 1)
+//        statusBarView.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
 //        self.window?.rootViewController?.view.insertSubview(statusBarView, at: 0)
         
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20)] // В Navigation Bar цвет текста должен быть UIColor., а его шрифт - UIFont.
+//        UINavigationBar.appearance().barStyle = .blackOpaque
         
         return true
     }

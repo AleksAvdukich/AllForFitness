@@ -27,6 +27,8 @@ class FitnessTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
 //        navigationController?.hidesBarsOnSwipe = true // Прячем Navigation Bar при проматывании вниз.
+//        UIApplication.shared.statusBarStyle = .default 
+//        setNeedsStatusBarAppearanceUpdate()
     }
     
     func filterContentFor(searchText text: String) {

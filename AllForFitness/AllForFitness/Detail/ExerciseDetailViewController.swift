@@ -130,6 +130,8 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
             let exercise = Popular(context: context)
             exercise.name = train?.name
             exercise.image = train?.image
+            exercise.desc = train?.description
+            exercise.type = train?.type
             var counter = 0
             counterPopularButtonPressed += 1
             do {

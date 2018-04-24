@@ -23,6 +23,8 @@ class PopularTableViewController: UITableViewController, NSFetchedResultsControl
             NSAttributedStringKey.foregroundColor: UIColor.blue]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil) // Убрать текст "Популярные" из кнопки назад в Navigation Bar.
+        
         let fetchRequest: NSFetchRequest<Popular> = Popular.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -71,12 +73,10 @@ class PopularTableViewController: UITableViewController, NSFetchedResultsControl
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return exercises.count
     }
     
@@ -99,6 +99,15 @@ class PopularTableViewController: UITableViewController, NSFetchedResultsControl
             try context?.save()
         } catch let error as NSError {
             print("Error: \(error), description \(error.userInfo)")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "popularDetailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let dvc = segue.destination as? PopularDetailViewController else { return } 
+                dvc.popularTrain = exercises[indexPath.row]
+            }
         }
     }
 }

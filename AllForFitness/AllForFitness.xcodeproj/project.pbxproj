@@ -18,6 +18,8 @@
 		39706ED3207D54C0004DA524 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39706ED2207D54C0004DA524 /* CoreDataStack.swift */; };
 		39706ED6207D5541004DA524 /* AllForFitness.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39706ED4207D5541004DA524 /* AllForFitness.xcdatamodeld */; };
 		39706ED8207D6096004DA524 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39706ED7207D6096004DA524 /* NoteTableViewCell.swift */; };
+		39D0ED8F208F7DED0017AC6B /* PopularDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D0ED8E208F7DED0017AC6B /* PopularDetailViewController.swift */; };
+		39D0ED91208F7E170017AC6B /* PopularDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D0ED90208F7E170017AC6B /* PopularDetailTableViewCell.swift */; };
 		39E193F72067AB2100E1D67C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E193F62067AB2100E1D67C /* AppDelegate.swift */; };
 		39E193FC2067AB2100E1D67C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E193FA2067AB2100E1D67C /* Main.storyboard */; };
 		39E193FE2067AB2100E1D67C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E193FD2067AB2100E1D67C /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		39706ED2207D54C0004DA524 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		39706ED5207D5541004DA524 /* AllForFitness.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AllForFitness.xcdatamodel; sourceTree = "<group>"; };
 		39706ED7207D6096004DA524 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		39D0ED8E208F7DED0017AC6B /* PopularDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDetailViewController.swift; sourceTree = "<group>"; };
+		39D0ED90208F7E170017AC6B /* PopularDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDetailTableViewCell.swift; sourceTree = "<group>"; };
 		39E193F32067AB2100E1D67C /* AllForFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllForFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E193F62067AB2100E1D67C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39E193FB2067AB2100E1D67C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 			children = (
 				1FB2EEE920877E7F0087FC0A /* PopularTableViewController.swift */,
 				1FB2EEEB208783AB0087FC0A /* PopularTableViewCell.swift */,
+				39D0ED8E208F7DED0017AC6B /* PopularDetailViewController.swift */,
+				39D0ED90208F7E170017AC6B /* PopularDetailTableViewCell.swift */,
 			);
 			path = Popular;
 			sourceTree = "<group>";
@@ -216,8 +222,10 @@
 				39E96DD7207B898500004785 /* ContentViewController.swift in Sources */,
 				1FB2EEEC208783AB0087FC0A /* PopularTableViewCell.swift in Sources */,
 				39E194092067AC8400E1D67C /* FitnessTableViewController.swift in Sources */,
+				39D0ED8F208F7DED0017AC6B /* PopularDetailViewController.swift in Sources */,
 				39E96DD5207B897300004785 /* PageViewController.swift in Sources */,
 				39706ED1207D51E7004DA524 /* NoteTableViewController.swift in Sources */,
+				39D0ED91208F7E170017AC6B /* PopularDetailTableViewCell.swift in Sources */,
 				1FB2EEEA20877E7F0087FC0A /* PopularTableViewController.swift in Sources */,
 				39E1940D2067B48300E1D67C /* Training.swift in Sources */,
 				391CF7F8207FC6C700734A80 /* RateViewController.swift in Sources */,
