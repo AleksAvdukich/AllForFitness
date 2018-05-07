@@ -23,6 +23,7 @@ class SaveNoteTableViewController: UITableViewController, UIImagePickerControlle
             if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
                 let newNote = Note(context: context)
                 newNote.note = saveTextField.text
+                newNote.date = Date()
                 if let image = saveImageView.image {
                     newNote.image = UIImagePNGRepresentation(image)
                 }

@@ -15,6 +15,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var rateButton: UIButton!
     @IBOutlet weak var popularButton: UIButton!
+    @IBOutlet weak var instructionButton: UIButton!
     
     var train: Training?
     var fetchResultsController: NSFetchedResultsController<Popular>!
@@ -53,6 +54,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         tableView.rowHeight = UITableViewAutomaticDimension // Автоматическое увеличение высоты строки. Поскольку у ячейки есть строгие констрэйнты относительно строки, следовательно, когда в ячейке большой текст, то растягивается строка, а значит, растягивается и ячейка.
         title = train!.name // В Navigation Bar отображается название тренировки. Это название имеет цвет и шрифт такой, какой прописали в AppDelegate.swift.
         imageView.image = UIImage(named: train!.image) // Отображение изображения упражнения.
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         let fetchRequest: NSFetchRequest<Popular> = Popular.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -70,7 +72,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         // Рамка для кнопок.
-        let buttons = [rateButton, popularButton]
+        let buttons = [rateButton, popularButton, instructionButton]
         for button in buttons {
             guard let button = button else { break }
             button.layer.cornerRadius = 5
@@ -101,13 +103,13 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         switch indexPath.row {
         case 0:
-            cell.keyLabel.text = "Название"
+            cell.keyLabel.text = "Название:"
             cell.valueLabel.text = train!.name
         case 1:
-            cell.keyLabel.text = "Тип"
+            cell.keyLabel.text = "Тип:"
             cell.valueLabel.text = train!.type
         case 2:
-            cell.keyLabel.text = "Описание"
+            cell.keyLabel.text = "Описание:"
             cell.valueLabel.text = train!.description
         default:
             break
@@ -120,9 +122,13 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    // Сигвэй в NoteTableViewController. От кнопки "Заметки" идет сигвэй Show.
+    // Сигвэй в InstructionPageViewController. От кнопки "Информация" идет сигвэй Show.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.destination is NoteTableViewController else { return }
+        
+        if segue.identifier == "instructionSegue" {
+            guard let dvc = segue.destination as? InstructionPageViewController else { return }
+            dvc.instruction = train
+        }
     }
 
     @IBAction func popularButtonPressed(_ sender: UIButton) {
