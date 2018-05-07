@@ -9,7 +9,7 @@
 import UIKit
 
 class SaveNoteTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var saveImageView: UIImageView!
     @IBOutlet weak var saveTextField: UITextField!
     
@@ -42,10 +42,10 @@ class SaveNoteTableViewController: UITableViewController, UIImagePickerControlle
         super.viewDidLoad()
         
         navigationItem.largeTitleDisplayMode = .never
-
+        
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -85,14 +85,15 @@ class SaveNoteTableViewController: UITableViewController, UIImagePickerControlle
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
 }
+

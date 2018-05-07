@@ -30,10 +30,7 @@ class EditNoteTableViewController: UITableViewController, UIImagePickerControlle
                 if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
                     let editNote = Note(context: context)
                     editNote.note = self.editTextField.text
-<<<<<<< HEAD
                     editNote.date = Date()
-=======
->>>>>>> 980638860080985c60d3ae2525355f0ee87d1d99
                     if let image = self.editImageView.image {
                         editNote.image = UIImagePNGRepresentation(image)
                     }
@@ -79,13 +76,13 @@ class EditNoteTableViewController: UITableViewController, UIImagePickerControlle
         super.viewDidLoad()
         
         navigationItem.largeTitleDisplayMode = .never
-
+        
         editImageView.image = UIImage(data: note!.image! as Data)
         editTextField.text = note?.note
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -125,14 +122,15 @@ class EditNoteTableViewController: UITableViewController, UIImagePickerControlle
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
 }
+
