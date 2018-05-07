@@ -54,24 +54,24 @@ class NoteTableViewController: UITableViewController {
         let attributes = [
             NSAttributedStringKey.foregroundColor: UIColor.blue]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
-        //        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         tableView.estimatedRowHeight = 64
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        //        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
-        //        let sortDescriptor = NSSortDescriptor(key: "note", ascending: true)
-        //        fetchRequest.sortDescriptors = [sortDescriptor]
-        //        if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
-        //            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        //            fetchResultsController.delegate = self
-        //            do {
-        //                try fetchResultsController.performFetch()
-        //                items = fetchResultsController.fetchedObjects!
-        //            } catch let error as NSError {
-        //                print(error.localizedDescription)
-        //            }
-        //        }
+//        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+//        let sortDescriptor = NSSortDescriptor(key: "note", ascending: true)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+//        if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
+//            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+//            fetchResultsController.delegate = self
+//            do {
+//                try fetchResultsController.performFetch()
+//                items = fetchResultsController.fetchedObjects!
+//            } catch let error as NSError {
+//                print(error.localizedDescription)
+//            }
+//        }
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
@@ -83,27 +83,27 @@ class NoteTableViewController: UITableViewController {
     
     // MARK: - Fetch results controller delegate
     
-    //    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-    //        tableView.beginUpdates()
-    //    }
-    //
-    //    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-    //        switch type {
-    //        case .insert: guard let indexPath = newIndexPath else { break }
-    //        tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-    //        case .delete: guard let indexPath = indexPath else { break }
-    //        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-    //        case .update: guard let indexPath = indexPath else { break }
-    //        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-    //        default:
-    //            tableView.reloadData()
-    //        }
-    //        items = controller.fetchedObjects as! [Note]
-    //    }
-    //
-    //    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-    //        tableView.endUpdates()
-    //    }
+//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.beginUpdates()
+//    }
+//
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//        switch type {
+//        case .insert: guard let indexPath = newIndexPath else { break }
+//        tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+//        case .delete: guard let indexPath = indexPath else { break }
+//        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+//        case .update: guard let indexPath = indexPath else { break }
+//        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+//        default:
+//            tableView.reloadData()
+//        }
+//        items = controller.fetchedObjects as! [Note]
+//    }
+//
+//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.endUpdates()
+//    }
     
     
     // MARK: - Table view data source
@@ -129,19 +129,19 @@ class NoteTableViewController: UITableViewController {
     }
     
     // Метод удаления заметки из tableView.
-    //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    //        let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext
-    //        guard editingStyle == .delete else { return }
-    //        context?.delete(items[indexPath.row]) // Удаление экземпляра класса Note из контекста.
-    //        items.remove(at: indexPath.row) // Удаление задачи из массива задач.
-    //        // Пересохранение контекста.
-    //        do {
-    //            try context?.save()
-    ////            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade) // Удаление св-ва заметки из tableView.
-    //        } catch let error as NSError {
-    //            print("Error: \(error), description \(error.userInfo)")
-    //        }
-    //    }
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext
+//        guard editingStyle == .delete else { return }
+//        context?.delete(items[indexPath.row]) // Удаление экземпляра класса Note из контекста.
+//        items.remove(at: indexPath.row) // Удаление задачи из массива задач.
+//        // Пересохранение контекста.
+//        do {
+//            try context?.save()
+//            //            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade) // Удаление св-ва заметки из tableView.
+//        } catch let error as NSError {
+//            print("Error: \(error), description \(error.userInfo)")
+//        }
+//    }
     
     // Метод, чтобы "Удалить" заметку и "Поделиться" ею.
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
