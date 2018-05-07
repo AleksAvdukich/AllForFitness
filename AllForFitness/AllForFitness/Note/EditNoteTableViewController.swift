@@ -30,7 +30,10 @@ class EditNoteTableViewController: UITableViewController, UIImagePickerControlle
                 if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
                     let editNote = Note(context: context)
                     editNote.note = self.editTextField.text
+<<<<<<< HEAD
                     editNote.date = Date()
+=======
+>>>>>>> 980638860080985c60d3ae2525355f0ee87d1d99
                     if let image = self.editImageView.image {
                         editNote.image = UIImagePNGRepresentation(image)
                     }
