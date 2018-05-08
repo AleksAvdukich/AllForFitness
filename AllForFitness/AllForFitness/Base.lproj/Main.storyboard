@@ -148,9 +148,9 @@
                                     <constraint firstAttribute="width" secondItem="vW8-Mj-jDd" secondAttribute="height" multiplier="1:1" id="juv-ue-fRn"/>
                                     <constraint firstAttribute="height" constant="50" id="w2f-te-Kog"/>
                                 </constraints>
-                                <state key="normal" image="like"/>
+                                <state key="normal" image="ratingLikeDislike"/>
                                 <connections>
-                                    <segue destination="Wzv-ss-Ubh" kind="showDetail" id="IAH-gj-93Z"/>
+                                    <segue destination="Wzv-ss-Ubh" kind="show" identifier="ratingSegue" id="vY3-57-nWa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTH-5x-8cB">
@@ -289,27 +289,16 @@
         <!--Rate View Controller-->
         <scene sceneID="qak-Gk-UGQ">
             <objects>
-                <viewController id="Wzv-ss-Ubh" customClass="RateViewController" customModule="AllForFitness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Wzv-ss-Ubh" customClass="RateViewController" customModule="AllForFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gux-OW-4wD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageRate" translatesAutoresizingMaskIntoConstraints="NO" id="HQJ-gk-Leb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWI-VU-JDV">
-                                <rect key="frame" x="309" y="36" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="pWI-VU-JDV" secondAttribute="height" multiplier="1:1" id="Rqg-CM-dKT"/>
-                                    <constraint firstAttribute="height" constant="50" id="lnD-Nf-epe"/>
-                                </constraints>
-                                <state key="normal" image="close"/>
-                                <connections>
-                                    <segue destination="VjV-1Q-OaL" kind="unwind" unwindAction="unwindSegueWithSegue:" id="fOf-h9-3RU"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Как Вам данное упражнение?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIo-0I-Bps">
-                                <rect key="frame" x="16" y="149" width="343" height="43"/>
+                                <rect key="frame" x="16" y="193" width="343" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="I9P-Ol-dtY"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="txT-G2-09h"/>
@@ -319,7 +308,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4W-Gw-oDN">
-                                <rect key="frame" x="240" y="217" width="80" height="80"/>
+                                <rect key="frame" x="240" y="261" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="XTs-oU-7y9"/>
                                     <constraint firstAttribute="width" constant="80" id="aAW-qp-2Av"/>
@@ -330,7 +319,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCb-ia-6nz">
-                                <rect key="frame" x="55" y="217" width="80" height="80"/>
+                                <rect key="frame" x="55" y="261" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="0L1-GP-gT7"/>
                                     <constraint firstAttribute="width" constant="80" id="Ogn-U5-jD0"/>
@@ -340,16 +329,30 @@
                                     <action selector="rateTrainWithSender:" destination="Wzv-ss-Ubh" eventType="touchUpInside" id="Id8-3H-v3p"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aj2-dR-iKg">
+                                <rect key="frame" x="117" y="587" width="140" height="60"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="7df-IJ-lgZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="uOh-hb-Dnt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <state key="normal" title="Отменить оценку"/>
+                                <connections>
+                                    <action selector="rateTrainWithSender:" destination="Wzv-ss-Ubh" eventType="touchUpInside" id="YFH-hk-KV2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pWI-VU-JDV" firstAttribute="top" secondItem="gsG-V9-Uhf" secondAttribute="top" constant="16" id="9Ku-xR-gUM"/>
+                            <constraint firstItem="aj2-dR-iKg" firstAttribute="leading" secondItem="gsG-V9-Uhf" secondAttribute="leading" constant="117" id="B6D-fG-aAo"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="top" secondItem="HQJ-gk-Leb" secondAttribute="top" constant="20" id="C0W-qY-qYy"/>
+                            <constraint firstItem="BIo-0I-Bps" firstAttribute="top" secondItem="gsG-V9-Uhf" secondAttribute="top" constant="129" id="HZn-lb-Yaq"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="trailing" secondItem="HQJ-gk-Leb" secondAttribute="trailing" id="IBo-Hl-OU4"/>
                             <constraint firstItem="FCb-ia-6nz" firstAttribute="top" secondItem="BIo-0I-Bps" secondAttribute="bottom" constant="25" id="LcO-dV-tCd"/>
-                            <constraint firstItem="gsG-V9-Uhf" firstAttribute="trailing" secondItem="pWI-VU-JDV" secondAttribute="trailing" constant="16" id="OI6-ou-zlj"/>
-                            <constraint firstItem="BIo-0I-Bps" firstAttribute="top" secondItem="pWI-VU-JDV" secondAttribute="bottom" constant="63" id="PXj-xi-x7g"/>
+                            <constraint firstItem="gsG-V9-Uhf" firstAttribute="trailing" secondItem="aj2-dR-iKg" secondAttribute="trailing" constant="118" id="Qg4-a1-6KB"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="bottom" secondItem="HQJ-gk-Leb" secondAttribute="bottom" id="RA1-eE-7B8"/>
+                            <constraint firstItem="gsG-V9-Uhf" firstAttribute="bottom" secondItem="aj2-dR-iKg" secondAttribute="bottom" constant="20" id="Xby-av-cHt"/>
                             <constraint firstItem="BIo-0I-Bps" firstAttribute="centerX" secondItem="HQJ-gk-Leb" secondAttribute="centerX" id="Z5U-4V-o1E"/>
                             <constraint firstItem="F4W-Gw-oDN" firstAttribute="top" secondItem="BIo-0I-Bps" secondAttribute="bottom" constant="25" id="dGB-66-gXz"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="trailing" secondItem="F4W-Gw-oDN" secondAttribute="trailing" constant="55" id="ehh-AJ-dPh"/>
@@ -359,6 +362,7 @@
                         <viewLayoutGuide key="safeArea" id="gsG-V9-Uhf"/>
                     </view>
                     <connections>
+                        <outlet property="cancel" destination="aj2-dR-iKg" id="yMp-fb-Om9"/>
                         <outlet property="dislike" destination="F4W-Gw-oDN" id="fDg-sp-cSj"/>
                         <outlet property="like" destination="FCb-ia-6nz" id="moO-ZS-9FP"/>
                         <segue destination="VjV-1Q-OaL" kind="unwind" identifier="unwindSegueToDVC" unwindAction="unwindSegueToDetailViewControllerWithSegue:" id="SYW-Zt-AGx"/>
@@ -908,7 +912,7 @@
                                     <constraint firstAttribute="height" constant="50" id="h6r-Me-zGd"/>
                                     <constraint firstAttribute="width" secondItem="1kS-q4-eB3" secondAttribute="height" multiplier="1:1" id="h9A-Wu-inB"/>
                                 </constraints>
-                                <state key="normal" image="like"/>
+                                <state key="normal" image="ratingLikeDislike"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -939,7 +943,6 @@
     </scenes>
     <resources>
         <image name="about" width="25" height="24"/>
-        <image name="close" width="50" height="50"/>
         <image name="dislike" width="705" height="703"/>
         <image name="favorites" width="128" height="128"/>
         <image name="imageRate" width="621" height="1104"/>
@@ -947,5 +950,6 @@
         <image name="like" width="712" height="708"/>
         <image name="note" width="29" height="29"/>
         <image name="photo" width="170" height="170"/>
+        <image name="ratingLikeDislike" width="57" height="57"/>
     </resources>
 </document>

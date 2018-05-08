@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PopularDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -15,6 +16,27 @@ class PopularDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var rateButton: UIButton!
     
     var popularTrain: Popular?
+    var ratingArray: [Rating] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext { // Обращение к контексту.
+            let fetchRequest: NSFetchRequest<Rating> = Rating.fetchRequest() // Запрос по Rating сущности.
+            do {
+                ratingArray = try context.fetch(fetchRequest)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        if ratingArray.count != 0 {
+            for i in 0..<ratingArray.count {
+                if popularTrain?.id == ratingArray[i].id {
+                    let ratingImage = ratingArray[i].image
+                    rateButton.setImage(UIImage(named: ratingImage!), for: UIControlState.normal)
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -138,6 +138,7 @@ class FitnessTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 guard let dvc = segue.destination as? ExerciseDetailViewController else { return } // Конечный контролер, который кастится к EateryDetailViewController, чтобы получить его св-ва.
                 dvc.train = trainsToDisplayAt(indexPath: indexPath)
+                dvc.id = Double(indexPath.row)
             }
         }
     }

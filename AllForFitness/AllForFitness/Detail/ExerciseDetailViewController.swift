@@ -21,16 +21,13 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     var fetchResultsController: NSFetchedResultsController<Popular>!
     var popularExercises: [Popular] = []
     var counterPopularButtonPressed = 0
+    var id: Double?
+    var ratingArray: [Rating] = []
     
 //    // Обратный сигвэй от NoteTableViewController. От кнопки "Назад" в Exit.
 //    @IBAction func unwindToDetailViewController(segue: UIStoryboardSegue) {
 //
 //    }
-    
-    // Обратный сигвэй от RateViewController при нажатии кнопки close (Close -> Exit).
-    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
-        
-    }
     
     // Обратный сигвэй от RateViewController при нажатии кнопок лайк/дизлайк (RateViewController -> Exit). Сигвэй имеет идентификатор "unwindSegueToDVC". Вызывается он в контроллере RateViewController при нажатии кнопок с тэгом 0 и 1 в @IBAction func rateRestaurant(sender: UIButton)
     @IBAction func unwindSegueToDetailViewController(segue: UIStoryboardSegue) {
@@ -40,9 +37,28 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         rateButton.setImage(UIImage(named: rating), for: UIControlState.normal)
     }
     
+    // Загрузка данных из CoreData в массив ratingArray до загрузкки TableView, т.е. до выполнения метода viewDidLoad.
     override func viewWillAppear(_ animated: Bool) {
 //        navigationController?.hidesBarsOnSwipe = false // Не прячем Navigation Bar при проматывании вниз.
 //        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext { // Обращение к контексту.
+            let fetchRequest: NSFetchRequest<Rating> = Rating.fetchRequest() // Запрос по Rating сущности.
+            do {
+                ratingArray = try context.fetch(fetchRequest)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        if ratingArray.count != 0 {
+            for i in 0..<ratingArray.count {
+                if id == ratingArray[i].id {
+                    let ratingImage = ratingArray[i].image
+                    rateButton.setImage(UIImage(named: ratingImage!), for: UIControlState.normal)
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -129,6 +145,11 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
             guard let dvc = segue.destination as? InstructionPageViewController else { return }
             dvc.instruction = train
         }
+        
+        if segue.identifier == "ratingSegue" {
+            guard let dvc = segue.destination as? RateViewController else { return }
+            dvc.id = id
+        }
     }
 
     @IBAction func popularButtonPressed(_ sender: UIButton) {
@@ -138,6 +159,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
             exercise.image = train?.image
             exercise.desc = train?.description
             exercise.type = train?.type
+            exercise.id = id!
             var counter = 0
             counterPopularButtonPressed += 1
             do {
