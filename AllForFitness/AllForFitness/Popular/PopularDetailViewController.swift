@@ -14,6 +14,7 @@ class PopularDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var rateButton: UIButton!
+    @IBOutlet weak var instructionButton: UIButton!
     
     var popularTrain: Popular?
     var ratingArray: [Rating] = []
@@ -50,9 +51,14 @@ class PopularDetailViewController: UIViewController, UITableViewDataSource, UITa
         
         imageView.image = UIImage(named: popularTrain!.image!)
         
-        rateButton.layer.cornerRadius = 5
-        rateButton.layer.borderWidth = 1
-        rateButton.layer.borderColor = UIColor.blue.cgColor
+        // Рамка для кнопок.
+        let buttons = [rateButton, instructionButton]
+        for button in buttons {
+            guard let button = button else { break }
+            button.layer.cornerRadius = 5
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.blue.cgColor
+        }
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
@@ -96,5 +102,13 @@ class PopularDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "popularInstructionSegue" {
+            guard let dvc = segue.destination as? PopularInstructionPageViewController else { return }
+            dvc.popularInstruction = popularTrain
+        }
     }
 }

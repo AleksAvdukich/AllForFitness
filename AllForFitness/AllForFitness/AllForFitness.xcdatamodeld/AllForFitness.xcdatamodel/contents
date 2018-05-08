@@ -9,7 +9,18 @@
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageFive" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageFour" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageOne" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageThree" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageTwo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="positionFive" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="positionFour" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="positionOne" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="positionThree" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="positionTwo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Rating" representedClassName="Rating" syncable="YES" codeGenerationType="class">
@@ -22,7 +33,7 @@
     </entity>
     <elements>
         <element name="Note" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Popular" positionX="-63" positionY="0" width="128" height="120"/>
+        <element name="Popular" positionX="-63" positionY="0" width="128" height="285"/>
         <element name="Rating" positionX="-63" positionY="18" width="128" height="75"/>
         <element name="Train" positionX="-63" positionY="-9" width="128" height="75"/>
     </elements>

@@ -190,7 +190,6 @@
                             <constraint firstItem="LTH-5x-8cB" firstAttribute="width" secondItem="LTH-5x-8cB" secondAttribute="height" multiplier="1:1" id="n2o-LF-aca"/>
                             <constraint firstItem="UtV-Fv-Pzf" firstAttribute="top" secondItem="LTH-5x-8cB" secondAttribute="bottom" constant="16" id="pvO-zt-yf9"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="trailing" secondItem="2pl-hW-heU" secondAttribute="trailing" id="wfp-Ia-sOH"/>
-                            <constraint firstItem="UtV-Fv-Pzf" firstAttribute="width" secondItem="UtV-Fv-Pzf" secondAttribute="height" multiplier="1:1" id="xBJ-wL-mpa"/>
                             <constraint firstItem="5fR-6U-vzC" firstAttribute="bottom" secondItem="2pl-hW-heU" secondAttribute="bottom" id="yLh-vv-h3C"/>
                             <constraint firstItem="2pl-hW-heU" firstAttribute="trailing" secondItem="UtV-Fv-Pzf" secondAttribute="trailing" constant="16" id="yv9-5V-nKS"/>
                         </constraints>
@@ -914,12 +913,24 @@
                                 </constraints>
                                 <state key="normal" image="ratingLikeDislike"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HtB-Bf-bwz">
+                                <rect key="frame" x="309" y="145" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Lcw-Cu-zai"/>
+                                    <constraint firstAttribute="width" secondItem="HtB-Bf-bwz" secondAttribute="height" multiplier="1:1" id="MpZ-Rv-oOi"/>
+                                </constraints>
+                                <state key="normal" image="instruction"/>
+                                <connections>
+                                    <segue destination="W8O-yI-Non" kind="show" identifier="popularInstructionSegue" id="lpa-PK-rA8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bpJ-Ai-vNr" firstAttribute="trailing" secondItem="UAl-A2-0qn" secondAttribute="trailing" id="4Ma-oM-mTq"/>
                             <constraint firstItem="UAl-A2-0qn" firstAttribute="trailing" secondItem="1kS-q4-eB3" secondAttribute="trailing" constant="16" id="8Xp-mH-a5P"/>
                             <constraint firstItem="bpJ-Ai-vNr" firstAttribute="bottom" secondItem="UAl-A2-0qn" secondAttribute="bottom" id="FuI-0w-LaD"/>
+                            <constraint firstItem="UAl-A2-0qn" firstAttribute="trailing" secondItem="HtB-Bf-bwz" secondAttribute="trailing" constant="16" id="Km3-aZ-7Ni"/>
                             <constraint firstItem="1kS-q4-eB3" firstAttribute="top" secondItem="UAl-A2-0qn" secondAttribute="top" constant="15" id="SvP-l0-rW5"/>
                             <constraint firstItem="bpJ-Ai-vNr" firstAttribute="top" secondItem="kqu-Pr-LrH" secondAttribute="top" id="WoX-H5-6rC"/>
                             <constraint firstItem="bpJ-Ai-vNr" firstAttribute="leading" secondItem="UAl-A2-0qn" secondAttribute="leading" id="Zag-UJ-gdL"/>
@@ -927,11 +938,13 @@
                             <constraint firstItem="bpJ-Ai-vNr" firstAttribute="trailing" secondItem="UAl-A2-0qn" secondAttribute="trailing" id="gX6-3F-znn"/>
                             <constraint firstItem="bpJ-Ai-vNr" firstAttribute="bottom" secondItem="UAl-A2-0qn" secondAttribute="bottom" id="jzH-LD-PAc"/>
                             <constraint firstItem="bpJ-Ai-vNr" firstAttribute="top" secondItem="kqu-Pr-LrH" secondAttribute="top" id="lVM-va-oXx"/>
+                            <constraint firstItem="HtB-Bf-bwz" firstAttribute="top" secondItem="1kS-q4-eB3" secondAttribute="bottom" constant="16" id="pLV-Su-kU8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UAl-A2-0qn"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="w0q-ua-Wda" id="M71-iK-whK"/>
+                        <outlet property="instructionButton" destination="HtB-Bf-bwz" id="VeI-xA-Ufi"/>
                         <outlet property="rateButton" destination="1kS-q4-eB3" id="BzR-ih-7ph"/>
                         <outlet property="tableView" destination="bpJ-Ai-vNr" id="4M2-gJ-dMq"/>
                     </connections>
@@ -939,6 +952,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iw6-5h-KZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2030" y="1272"/>
+        </scene>
+        <!--Popular Instruction Page View Controller-->
+        <scene sceneID="c4b-RJ-gCT">
+            <objects>
+                <pageViewController storyboardIdentifier="popularInstructionPageViewController" autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="W8O-yI-Non" customClass="PopularInstructionPageViewController" customModule="AllForFitness" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DUb-tv-39G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2830" y="1272"/>
+        </scene>
+        <!--Popular Instruction View Controller-->
+        <scene sceneID="DMM-dF-gpy">
+            <objects>
+                <viewController storyboardIdentifier="popularInstructionViewController" hidesBottomBarWhenPushed="YES" id="AcF-8D-kqK" customClass="PopularInstructionViewController" customModule="AllForFitness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zyo-gR-Jcv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oly-OO-hF1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="315"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="wAI-Re-FdY"/>
+                                    <constraint firstAttribute="width" secondItem="Oly-OO-hF1" secondAttribute="height" multiplier="75:71" constant="42.253521126760575" id="zmt-6c-uza"/>
+                                </constraints>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Rwj-FK-RUQ">
+                                <rect key="frame" x="0.0" y="630" width="375" height="37"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Rwj-FK-RUQ" secondAttribute="height" multiplier="375:37" id="J7b-XF-SRb"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="P5u-sz-iVF"/>
+                                </constraints>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Положение #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4N-9g-ZSt">
+                                <rect key="frame" x="16" y="351" width="343" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="3yf-AH-3al"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание положения" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfi-3c-Ax4">
+                                <rect key="frame" x="16" y="379" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="9vh-eJ-EAQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rwj-FK-RUQ" firstAttribute="trailing" secondItem="OOZ-Cl-Phq" secondAttribute="trailing" id="0Ja-0l-Oxl"/>
+                            <constraint firstItem="Rwj-FK-RUQ" firstAttribute="bottom" secondItem="OOZ-Cl-Phq" secondAttribute="bottom" id="7tU-ki-p3D"/>
+                            <constraint firstItem="b4N-9g-ZSt" firstAttribute="leading" secondItem="OOZ-Cl-Phq" secondAttribute="leading" constant="16" id="DhZ-Yz-5tc"/>
+                            <constraint firstItem="lfi-3c-Ax4" firstAttribute="top" secondItem="b4N-9g-ZSt" secondAttribute="bottom" constant="5" id="Gia-DN-haK"/>
+                            <constraint firstItem="Oly-OO-hF1" firstAttribute="top" secondItem="OOZ-Cl-Phq" secondAttribute="top" id="Jbl-gn-skT"/>
+                            <constraint firstItem="b4N-9g-ZSt" firstAttribute="top" secondItem="Oly-OO-hF1" secondAttribute="bottom" constant="16" id="SKH-88-pti"/>
+                            <constraint firstItem="lfi-3c-Ax4" firstAttribute="leading" secondItem="OOZ-Cl-Phq" secondAttribute="leading" constant="16" id="b4K-y1-Jcl"/>
+                            <constraint firstItem="Oly-OO-hF1" firstAttribute="leading" secondItem="OOZ-Cl-Phq" secondAttribute="leading" id="kUO-Rv-LVA"/>
+                            <constraint firstItem="OOZ-Cl-Phq" firstAttribute="trailing" secondItem="b4N-9g-ZSt" secondAttribute="trailing" constant="16" id="pon-GM-6zy"/>
+                            <constraint firstItem="Oly-OO-hF1" firstAttribute="trailing" secondItem="OOZ-Cl-Phq" secondAttribute="trailing" id="v3F-ux-43m"/>
+                            <constraint firstItem="Rwj-FK-RUQ" firstAttribute="leading" secondItem="OOZ-Cl-Phq" secondAttribute="leading" id="w5o-kZ-2X6"/>
+                            <constraint firstItem="OOZ-Cl-Phq" firstAttribute="trailing" secondItem="lfi-3c-Ax4" secondAttribute="trailing" constant="16" id="zlV-4q-Nc0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OOZ-Cl-Phq"/>
+                    </view>
+                    <connections>
+                        <outlet property="popularHeaderLabel" destination="b4N-9g-ZSt" id="oFh-MF-Qe9"/>
+                        <outlet property="popularInstructionImageView" destination="Oly-OO-hF1" id="Duf-oL-XcH"/>
+                        <outlet property="popularInstructionLabel" destination="lfi-3c-Ax4" id="srm-9l-Bov"/>
+                        <outlet property="popularInstructionPageControl" destination="Rwj-FK-RUQ" id="jM8-O0-sY8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MEl-dL-tNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3590" y="1272"/>
         </scene>
     </scenes>
     <resources>

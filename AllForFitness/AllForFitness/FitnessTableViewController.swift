@@ -89,7 +89,7 @@ class FitnessTableViewController: UITableViewController {
     }
     
     func trainsToDisplayAt(indexPath: IndexPath) -> Training {
-        let exercise: Training // Создаем константу в которую потом поместим значения либо с одного массива либо с другого
+        let exercise: Training // Создаем константу, в которую потом поместим значения либо с одного массива, либо с другого.
         if searchController.isActive && searchController.searchBar.text != "" {
             exercise = filteredResultArray[indexPath.row]
         } else {

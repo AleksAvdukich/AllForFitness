@@ -13,6 +13,8 @@
 		1FB2EEEC208783AB0087FC0A /* PopularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2EEEB208783AB0087FC0A /* PopularTableViewCell.swift */; };
 		3911178B208C9F9D0098DEA4 /* SaveNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3911178A208C9F9D0098DEA4 /* SaveNoteTableViewController.swift */; };
 		3911178D208C9FAB0098DEA4 /* EditNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3911178C208C9FAB0098DEA4 /* EditNoteTableViewController.swift */; };
+		3912FDC420A1D4190000300B /* PopularInstructionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3912FDC320A1D4190000300B /* PopularInstructionPageViewController.swift */; };
+		3912FDC620A1D43F0000300B /* PopularInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3912FDC520A1D43F0000300B /* PopularInstructionViewController.swift */; };
 		391CF7F8207FC6C700734A80 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF7F7207FC6C700734A80 /* RateViewController.swift */; };
 		3933FAF62095ED700025F9B5 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3933FAF52095ED700025F9B5 /* InstructionViewController.swift */; };
 		3933FAF82095EE1A0025F9B5 /* InstructionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3933FAF72095EE1A0025F9B5 /* InstructionPageViewController.swift */; };
@@ -40,6 +42,8 @@
 		1FB2EEEB208783AB0087FC0A /* PopularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTableViewCell.swift; sourceTree = "<group>"; };
 		3911178A208C9F9D0098DEA4 /* SaveNoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNoteTableViewController.swift; sourceTree = "<group>"; };
 		3911178C208C9FAB0098DEA4 /* EditNoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteTableViewController.swift; sourceTree = "<group>"; };
+		3912FDC320A1D4190000300B /* PopularInstructionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularInstructionPageViewController.swift; sourceTree = "<group>"; };
+		3912FDC520A1D43F0000300B /* PopularInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularInstructionViewController.swift; sourceTree = "<group>"; };
 		391CF7F7207FC6C700734A80 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		3933FAF52095ED700025F9B5 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		3933FAF72095EE1A0025F9B5 /* InstructionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPageViewController.swift; sourceTree = "<group>"; };
@@ -80,8 +84,18 @@
 				1FB2EEEB208783AB0087FC0A /* PopularTableViewCell.swift */,
 				39D0ED8E208F7DED0017AC6B /* PopularDetailViewController.swift */,
 				39D0ED90208F7E170017AC6B /* PopularDetailTableViewCell.swift */,
+				3912FDC720A1D44D0000300B /* PopularInstruction */,
 			);
 			path = Popular;
+			sourceTree = "<group>";
+		};
+		3912FDC720A1D44D0000300B /* PopularInstruction */ = {
+			isa = PBXGroup;
+			children = (
+				3912FDC320A1D4190000300B /* PopularInstructionPageViewController.swift */,
+				3912FDC520A1D43F0000300B /* PopularInstructionViewController.swift */,
+			);
+			path = PopularInstruction;
 			sourceTree = "<group>";
 		};
 		3933FAF92095EE500025F9B5 /* Instruction */ = {
@@ -241,6 +255,7 @@
 				39706ED1207D51E7004DA524 /* NoteTableViewController.swift in Sources */,
 				39D0ED91208F7E170017AC6B /* PopularDetailTableViewCell.swift in Sources */,
 				1FB2EEEA20877E7F0087FC0A /* PopularTableViewController.swift in Sources */,
+				3912FDC620A1D43F0000300B /* PopularInstructionViewController.swift in Sources */,
 				39E1940D2067B48300E1D67C /* Training.swift in Sources */,
 				391CF7F8207FC6C700734A80 /* RateViewController.swift in Sources */,
 				3911178B208C9F9D0098DEA4 /* SaveNoteTableViewController.swift in Sources */,
@@ -253,6 +268,7 @@
 				39706ED6207D5541004DA524 /* AllForFitness.xcdatamodeld in Sources */,
 				1F466B5620680D3700B3DCFF /* ExerciseDetailViewController.swift in Sources */,
 				3933FAF82095EE1A0025F9B5 /* InstructionPageViewController.swift in Sources */,
+				3912FDC420A1D4190000300B /* PopularInstructionPageViewController.swift in Sources */,
 				39706ED8207D6096004DA524 /* NoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

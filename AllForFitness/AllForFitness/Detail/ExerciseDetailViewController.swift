@@ -160,6 +160,25 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
             exercise.desc = train?.description
             exercise.type = train?.type
             exercise.id = id!
+            exercise.position = Int16((train?.position)!)
+            exercise.positionOne = train?.positionOne
+            exercise.positionTwo = train?.positionTwo
+            exercise.positionThree = train?.positionThree
+//            if train?.positionFour != nil {
+                exercise.positionFour = train?.positionFour
+////            }
+//            if train?.positionFive != nil {
+                exercise.positionFive = train?.positionFive
+//            }
+            exercise.imageOne = train?.imageOne
+            exercise.imageTwo = train?.imageTwo
+            exercise.imageThree = train?.imageThree
+//            if train?.imageFour != nil {
+                exercise.imageFour = train?.imageFour
+//            }
+//            if train?.imageFive != nil {
+                exercise.imageFive = train?.imageFive
+//            }
             var counter = 0
             counterPopularButtonPressed += 1
             do {

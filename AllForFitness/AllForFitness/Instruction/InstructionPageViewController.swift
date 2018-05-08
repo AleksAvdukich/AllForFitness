@@ -25,11 +25,11 @@ class InstructionPageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // Метод, который отображает ContentViewController. Далее код переходит в файл ContentViewController.swift, где описан класс контроллера contentViewController.
+    // Метод, который отображает InstructionViewController. Далее код переходит в файл InstructionViewController.swift.
     func displayViewController(atIndex index: Int) -> InstructionViewController? {
         guard index >= 0 else { return nil }
         guard index < (instruction?.position)! else { return nil }
-        // Переход на ContentViewController, используя Storyboard ID, и передача туда данных.
+        // Переход на InstructionViewController, используя Storyboard ID, и передача туда данных.
         guard let instructionVC = storyboard?.instantiateViewController(withIdentifier: "instructionViewController") as? InstructionViewController else { return nil }
         switch index {
         case 0:
@@ -69,13 +69,13 @@ class InstructionPageViewController: UIPageViewController {
     }
     
     func nextVC(atIndex index: Int) {
-        if let instructionVC = displayViewController(atIndex: index + 1) { // Попытка получить следующий contentViewController из метода displayViewController. Если получается, то вызывается метод setViewControllers, куда помещается тот viewController, который необходимо отобразить далее.
+        if let instructionVC = displayViewController(atIndex: index + 1) { // Попытка получить следующий InstructionViewController из метода displayViewController. Если получается, то вызывается метод setViewControllers, куда помещается тот viewController, который необходимо отобразить далее.
             setViewControllers([instructionVC], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
         }
     }
 }
 
-// Выполнение методов протокола UIPageViewControllerDataSource. Методы, означающие переход на ContentViewController и обратно.
+// Выполнение методов протокола UIPageViewControllerDataSource. Методы, означающие переход на InstructionViewController и обратно.
 extension InstructionPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = (viewController as! InstructionViewController).index
