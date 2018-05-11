@@ -329,14 +329,16 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aj2-dR-iKg">
-                                <rect key="frame" x="117" y="587" width="140" height="60"/>
+                                <rect key="frame" x="95" y="587" width="185" height="60"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="7df-IJ-lgZ"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="uOh-hb-Dnt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                <state key="normal" title="Отменить оценку"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                <state key="normal" title="Отменить оценку">
+                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="rateTrainWithSender:" destination="Wzv-ss-Ubh" eventType="touchUpInside" id="YFH-hk-KV2"/>
                                 </connections>
@@ -344,12 +346,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aj2-dR-iKg" firstAttribute="leading" secondItem="gsG-V9-Uhf" secondAttribute="leading" constant="117" id="B6D-fG-aAo"/>
+                            <constraint firstItem="aj2-dR-iKg" firstAttribute="leading" secondItem="gsG-V9-Uhf" secondAttribute="leading" constant="95" id="B6D-fG-aAo"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="top" secondItem="HQJ-gk-Leb" secondAttribute="top" constant="20" id="C0W-qY-qYy"/>
                             <constraint firstItem="BIo-0I-Bps" firstAttribute="top" secondItem="gsG-V9-Uhf" secondAttribute="top" constant="129" id="HZn-lb-Yaq"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="trailing" secondItem="HQJ-gk-Leb" secondAttribute="trailing" id="IBo-Hl-OU4"/>
                             <constraint firstItem="FCb-ia-6nz" firstAttribute="top" secondItem="BIo-0I-Bps" secondAttribute="bottom" constant="25" id="LcO-dV-tCd"/>
-                            <constraint firstItem="gsG-V9-Uhf" firstAttribute="trailing" secondItem="aj2-dR-iKg" secondAttribute="trailing" constant="118" id="Qg4-a1-6KB"/>
+                            <constraint firstItem="gsG-V9-Uhf" firstAttribute="trailing" secondItem="aj2-dR-iKg" secondAttribute="trailing" constant="95" id="Qg4-a1-6KB"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="bottom" secondItem="HQJ-gk-Leb" secondAttribute="bottom" id="RA1-eE-7B8"/>
                             <constraint firstItem="gsG-V9-Uhf" firstAttribute="bottom" secondItem="aj2-dR-iKg" secondAttribute="bottom" constant="20" id="Xby-av-cHt"/>
                             <constraint firstItem="BIo-0I-Bps" firstAttribute="centerX" secondItem="HQJ-gk-Leb" secondAttribute="centerX" id="Z5U-4V-o1E"/>

@@ -98,15 +98,6 @@
 			path = PopularInstruction;
 			sourceTree = "<group>";
 		};
-		3933FAF92095EE500025F9B5 /* Instruction */ = {
-			isa = PBXGroup;
-			children = (
-				3933FAF72095EE1A0025F9B5 /* InstructionPageViewController.swift */,
-				3933FAF52095ED700025F9B5 /* InstructionViewController.swift */,
-			);
-			path = Instruction;
-			sourceTree = "<group>";
-		};
 		39706ED9207D632C004DA524 /* Note */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +107,15 @@
 				3911178C208C9FAB0098DEA4 /* EditNoteTableViewController.swift */,
 			);
 			path = Note;
+			sourceTree = "<group>";
+		};
+		39D5D4E520A218AE000DDD29 /* Instruction */ = {
+			isa = PBXGroup;
+			children = (
+				3933FAF72095EE1A0025F9B5 /* InstructionPageViewController.swift */,
+				3933FAF52095ED700025F9B5 /* InstructionViewController.swift */,
+			);
+			path = Instruction;
 			sourceTree = "<group>";
 		};
 		39E193EA2067AB2100E1D67C = {
@@ -142,7 +142,6 @@
 				39E194082067AC8400E1D67C /* FitnessTableViewController.swift */,
 				39E1940A2067B40800E1D67C /* FitnessTableViewCell.swift */,
 				391CF7F7207FC6C700734A80 /* RateViewController.swift */,
-				3933FAF92095EE500025F9B5 /* Instruction */,
 				1FB2EEED208783B80087FC0A /* Popular */,
 				39706ED9207D632C004DA524 /* Note */,
 				39E96DD8207B898B00004785 /* Page */,
@@ -162,6 +161,7 @@
 			children = (
 				1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */,
 				1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */,
+				39D5D4E520A218AE000DDD29 /* Instruction */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
