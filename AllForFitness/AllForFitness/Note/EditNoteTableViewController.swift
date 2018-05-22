@@ -13,7 +13,7 @@ class EditNoteTableViewController: UITableViewController, UIImagePickerControlle
     var note: Note?
     
     @IBOutlet weak var editImageView: UIImageView!
-    @IBOutlet weak var editTextField: UITextField!
+    @IBOutlet weak var editTextView: UITextView!
     
     @IBAction func actionButtonPressed(_ sender: UIBarButtonItem) {
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet) // title - заголовок, message - текст высплывающего окна, preferredStyle - cтиль высплывающего окна (Alert Controller). Причем .actionSheet - лист возможных действий (отображается внизу экрана), а .alert - warning.
@@ -21,15 +21,15 @@ class EditNoteTableViewController: UITableViewController, UIImagePickerControlle
         let cancel = UIAlertAction(title: "Отмена", style: UIAlertActionStyle.cancel, handler: nil)
         // Второй action - Изменить.
         let edit = UIAlertAction(title: "Изменить", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) -> Void in
-            if self.editTextField.text == "" {
-                let ac1 = UIAlertController(title: "Не заполнено поле ввода!", message: "Пожалуйста, заполните всю информацию", preferredStyle: UIAlertControllerStyle.alert)
+            if self.editTextView.text == "" {
+                let ac1 = UIAlertController(title: "Не заполнено поле ввода!", message: "Пожалуйста, заполните поле заметки", preferredStyle: UIAlertControllerStyle.alert)
                 let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                 ac1.addAction(ok)
                 self.present(ac1, animated: true, completion: nil)
             } else {
                 if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
                     let editNote = Note(context: context)
-                    editNote.note = self.editTextField.text
+                    editNote.note = self.editTextView.text
                     editNote.date = Date()
                     if let image = self.editImageView.image {
                         editNote.image = UIImagePNGRepresentation(image)
@@ -77,8 +77,11 @@ class EditNoteTableViewController: UITableViewController, UIImagePickerControlle
         
         navigationItem.largeTitleDisplayMode = .never
         
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tapRecognizer)
+        
         editImageView.image = UIImage(data: note!.image! as Data)
-        editTextField.text = note?.note
+        editTextView.text = note?.note
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
@@ -132,5 +135,8 @@ class EditNoteTableViewController: UITableViewController, UIImagePickerControlle
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
-

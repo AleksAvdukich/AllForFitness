@@ -8,13 +8,13 @@
 
 import UIKit
 
-class SaveNoteTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SaveNoteTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     @IBOutlet weak var saveImageView: UIImageView!
-    @IBOutlet weak var saveTextField: UITextField!
+    @IBOutlet weak var saveTextView: UITextView!
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        if saveTextField.text == "" {
+        if saveTextView.textColor == UIColor.lightGray && saveTextView.text == "" {
             let ac = UIAlertController(title: "Не заполнено поле ввода!", message: "Пожалуйста, заполните всю информацию", preferredStyle: UIAlertControllerStyle.alert)
             let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
             ac.addAction(ok)
@@ -22,7 +22,7 @@ class SaveNoteTableViewController: UITableViewController, UIImagePickerControlle
         } else {
             if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
                 let newNote = Note(context: context)
-                newNote.note = saveTextField.text
+                newNote.note = saveTextView.text
                 newNote.date = Date()
                 if let image = saveImageView.image {
                     newNote.image = UIImagePNGRepresentation(image)
@@ -38,12 +38,51 @@ class SaveNoteTableViewController: UITableViewController, UIImagePickerControlle
         }
     }
     
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if self.view.window != nil {
+            if saveTextView.textColor == UIColor.lightGray {
+                saveTextView.selectedTextRange = saveTextView.textRange(from: saveTextView.beginningOfDocument, to: saveTextView.beginningOfDocument)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.largeTitleDisplayMode = .never
         
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tapRecognizer)
+        
+        saveTextView.text = "Заметка"
+        saveTextView.textColor = UIColor.lightGray
+        saveTextView.delegate = self
+        saveTextView.becomeFirstResponder()
+        saveTextView.selectedTextRange = saveTextView.textRange(from: saveTextView.beginningOfDocument, to: saveTextView.beginningOfDocument)
+        
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // Объединение текста в saveTextView и замещающего его текста для создания обновленной текстовой строки.
+        let currentText: String = saveTextView.text
+        let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
+        // Если обновленное текстовое поле пустое, то добавляем placeholder ("Заметка" серого цвета) и устанавливаем курсор в начало текстового поля.
+        if updatedText.isEmpty {
+            saveTextView.text = "Заметка"
+            saveTextView.textColor = UIColor.lightGray
+            saveTextView.selectedTextRange = saveTextView.textRange(from: saveTextView.beginningOfDocument, to: saveTextView.beginningOfDocument)
+        }
+            // Иначе если placeholder saveTextView показывается и длина замененной строки больше 0 (пользователь начинает печатать в saveTextView), то устанавливаем: цвет шрифта черный и замещающий текст на текст placeholder'a в saveTextView.
+        else if saveTextView.textColor == UIColor.lightGray && !text.isEmpty {
+            saveTextView.textColor = UIColor.black
+            saveTextView.text = text
+        }
+        else {
+            return true
+        }
+        // Возвращение false, т.к. обновление (заамещение) уже было сделано.
+        return false
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,6 +133,10 @@ class SaveNoteTableViewController: UITableViewController, UIImagePickerControlle
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
