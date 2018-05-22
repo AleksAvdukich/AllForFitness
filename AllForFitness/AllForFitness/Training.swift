@@ -24,4 +24,6 @@ struct Training {
     let positionThree: String
     let positionFour: String?
     let positionFive: String?
+    let podhody: String
+    let povtoreniya: String
 }

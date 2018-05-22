@@ -56,7 +56,7 @@ class PopularInstructionPageViewController: UIPageViewController {
             instructionVC.imageFile = (popularInstruction?.imageFour)!
             instructionVC.position = Int((popularInstruction?.position)!)
             instructionVC.index = index
-        case 5:
+        case 4:
             instructionVC.header = "Положение 5"
             instructionVC.label = (popularInstruction?.positionFive)!
             instructionVC.imageFile = (popularInstruction?.imageFive)!

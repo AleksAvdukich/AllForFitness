@@ -111,7 +111,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,6 +127,12 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         case 2:
             cell.keyLabel.text = "Описание:"
             cell.valueLabel.text = train!.description
+        case 3:
+            cell.keyLabel.text = "Количество подходов в сутки:"
+            cell.valueLabel.text = train?.podhody
+        case 4:
+            cell.keyLabel.text = "Среднее количество повторений за один подход:"
+            cell.valueLabel.text = train?.povtoreniya
         default:
             break
         }
@@ -179,6 +185,8 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
 //            if train?.imageFive != nil {
                 exercise.imageFive = train?.imageFive
 //            }
+            exercise.podhody = train?.podhody
+            exercise.povtoreniya = train?.povtoreniya
             var counter = 0
             counterPopularButtonPressed += 1
             do {

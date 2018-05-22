@@ -77,7 +77,7 @@ class PopularDetailViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,6 +93,12 @@ class PopularDetailViewController: UIViewController, UITableViewDataSource, UITa
         case 2:
             cell.keyLabel.text = "Описание"
             cell.valueLabel.text = popularTrain!.desc
+        case 3:
+            cell.keyLabel.text = "Количество подходов в сутки:"
+            cell.valueLabel.text = popularTrain?.podhody
+        case 4:
+            cell.keyLabel.text = "Среднее количество повторений за один подход:"
+            cell.valueLabel.text = popularTrain?.povtoreniya
         default:
             break
         }
