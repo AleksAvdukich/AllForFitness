@@ -95,13 +95,30 @@ class PopularTableViewController: UITableViewController, NSFetchedResultsControl
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != "" {
             return filteredResultArray.count
         } else {
             return exercises.count
         }
+    }
+
+    //MARK: Custom Cells
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //Вращение
+        let degree: Double = 90
+        let rotationAngle = CGFloat(degree * .pi / 180)//Угол на который мы будем разворачивать ячейки
+        let rotationTransform = CATransform3DMakeRotation(rotationAngle, 1, 0, 0)
+        cell.layer.transform = rotationTransform
+        
+        UIView.animate(withDuration: 1, delay: 0.2, options: .curveEaseInOut, animations: {
+            cell.layer.transform = CATransform3DIdentity //возвращаем в исходное положение
+        })
     }
     
     // Метод, необходимый для того, чтобы отображать рестораны в строках секции при условии поискового запроса.
@@ -118,9 +135,12 @@ class PopularTableViewController: UITableViewController, NSFetchedResultsControl
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PopularTableViewCell
         let exercise = exerciseToDisplay(indexPath: indexPath)
+        
+        cell.popularViewCell.layer.cornerRadius = cell.frame.height / 2
         cell.popularImageView.image = UIImage(named: exercise.image!)
-        cell.popularImageView.layer.cornerRadius = 32.5
-        cell.popularImageView.clipsToBounds = true
+        cell.popularImageView.layer.cornerRadius = cell.popularImageView.frame.height / 2
+        //cell.popularImageView.layer.cornerRadius = 32.5
+        //cell.popularImageView.clipsToBounds = true
         cell.popularNameLabel.text = exercise.name
         return cell
     }

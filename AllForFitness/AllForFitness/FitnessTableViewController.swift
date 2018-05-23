@@ -127,6 +127,23 @@ class FitnessTableViewController: UITableViewController {
         return trains.count
     }
     
+    //MARK: Custom Cells
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //Вращение
+        let degree: Double = 90
+        let rotationAngle = CGFloat(degree * .pi / 180)//Угол на который мы будем разворачивать ячейки
+        let rotationTransform = CATransform3DMakeRotation(rotationAngle, 1, 0, 0)
+        cell.layer.transform = rotationTransform
+        
+        UIView.animate(withDuration: 1, delay: 0.2, options: .curveEaseInOut, animations: {
+            cell.layer.transform = CATransform3DIdentity //возвращаем в исходное положение
+        })
+    }
+    
     func trainsToDisplayAt(indexPath: IndexPath) -> Training {
         let exercise: Training // Создаем константу, в которую потом поместим значения либо с одного массива, либо с другого.
         if searchController.isActive && searchController.searchBar.text != "" {
@@ -141,9 +158,12 @@ class FitnessTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FitnessTableViewCell
         let exercise = trainsToDisplayAt(indexPath: indexPath)
         
+        cell.viewCell.layer.cornerRadius = cell.frame.height / 2
+        
         cell.fitnessImageView.image = UIImage(named: exercise.image)
-        cell.fitnessImageView.layer.cornerRadius = 32.5
-        cell.fitnessImageView.clipsToBounds = true
+//        cell.fitnessImageView.layer.cornerRadius = 22.5
+        cell.fitnessImageView.layer.cornerRadius = cell.fitnessImageView.frame.height / 2
+//        cell.fitnessImageView.clipsToBounds = true
         cell.nameLabel.text = exercise.name
         
         return cell

@@ -39,7 +39,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     
     // Загрузка данных из CoreData в массив ratingArray до загрузкки TableView, т.е. до выполнения метода viewDidLoad.
     override func viewWillAppear(_ animated: Bool) {
-//        navigationController?.hidesBarsOnSwipe = false // Не прячем Navigation Bar при проматывании вниз.
+        navigationController?.hidesBarsOnSwipe = false // Не прячем Navigation Bar при проматывании вниз.
 //        navigationController?.setNavigationBarHidden(false, animated: true)
         
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext { // Обращение к контексту.

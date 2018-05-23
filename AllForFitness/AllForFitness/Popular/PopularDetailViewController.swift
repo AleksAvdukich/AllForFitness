@@ -20,6 +20,8 @@ class PopularDetailViewController: UIViewController, UITableViewDataSource, UITa
     var ratingArray: [Rating] = []
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.hidesBarsOnSwipe = false // Не прячем Navigation Bar при проматывании вниз.
+        
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext { // Обращение к контексту.
             let fetchRequest: NSFetchRequest<Rating> = Rating.fetchRequest() // Запрос по Rating сущности.
             do {

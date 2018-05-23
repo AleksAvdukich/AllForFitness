@@ -22,9 +22,9 @@ class UserNotificationManager {
     //MARK: - Add Default Notification
     func addNotificationWithTimeIntervalTrigger() {
         let content = UNMutableNotificationContent()
-        content.title = "Title"
-        content.subtitle = "Subtitle"
-        content.body = "Body"
+        content.title = "Давно к нам не заглядывали!"
+        content.subtitle = "Пора на тренировку"
+        content.body = "Выберите подходящие упражнения для вас"
         //content.badge = 1
         content.sound = UNNotificationSound.default()
         

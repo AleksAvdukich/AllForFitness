@@ -12,7 +12,7 @@ class PopularTableViewCell: UITableViewCell {
 
     @IBOutlet weak var popularImageView: UIImageView!
     @IBOutlet weak var popularNameLabel: UILabel!
-    
+    @IBOutlet weak var popularViewCell: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
