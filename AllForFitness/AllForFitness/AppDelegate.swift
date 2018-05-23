@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17)] // В Navigation Bar цвет текста должен быть UIColor., а его шрифт - UIFont.
 //        UINavigationBar.appearance().barStyle = .blackOpaque
         
+        UserNotificationManager.shared.registerNotification()
+        
         return true
     }
 

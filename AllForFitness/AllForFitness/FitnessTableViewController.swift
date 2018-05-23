@@ -77,6 +77,8 @@ class FitnessTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserNotificationManager.shared.addNotificationWithTimeIntervalTrigger()
+        
         // Новый NavBar.
         navigationController?.navigationBar.prefersLargeTitles = true
         let attributes = [

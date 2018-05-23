@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F430A4420B512710001A6DB /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F430A4320B512710001A6DB /* UserNotificationManager.swift */; };
 		1F466B5620680D3700B3DCFF /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */; };
 		1F466B5A20681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */; };
 		1FB2EEEA20877E7F0087FC0A /* PopularTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2EEE920877E7F0087FC0A /* PopularTableViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		15E7C7F1815A74CCB77DAFE3 /* Pods-AllForFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllForFitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllForFitness/Pods-AllForFitness.debug.xcconfig"; sourceTree = "<group>"; };
+		1F430A4320B512710001A6DB /* UserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
 		1F466B5520680D3700B3DCFF /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		1F466B5920681B7F00B3DCFF /* ExerciseDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1FB2EEE920877E7F0087FC0A /* PopularTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTableViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				39E194082067AC8400E1D67C /* FitnessTableViewController.swift */,
 				39E1940A2067B40800E1D67C /* FitnessTableViewCell.swift */,
 				391CF7F7207FC6C700734A80 /* RateViewController.swift */,
+				1F430A4320B512710001A6DB /* UserNotificationManager.swift */,
 				1FB2EEED208783B80087FC0A /* Popular */,
 				39706ED9207D632C004DA524 /* Note */,
 				39E96DD8207B898B00004785 /* Page */,
@@ -329,6 +332,7 @@
 				39D0ED91208F7E170017AC6B /* PopularDetailTableViewCell.swift in Sources */,
 				1FB2EEEA20877E7F0087FC0A /* PopularTableViewController.swift in Sources */,
 				3912FDC620A1D43F0000300B /* PopularInstructionViewController.swift in Sources */,
+				1F430A4420B512710001A6DB /* UserNotificationManager.swift in Sources */,
 				39E1940D2067B48300E1D67C /* Training.swift in Sources */,
 				391CF7F8207FC6C700734A80 /* RateViewController.swift in Sources */,
 				3911178B208C9F9D0098DEA4 /* SaveNoteTableViewController.swift in Sources */,
